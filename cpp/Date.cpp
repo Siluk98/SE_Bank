@@ -1,5 +1,35 @@
 #include "../hpp/Date.hpp"
 
+Date::Date()
+:day(0)
+,month(0)
+,year(0)
+{}
+
+Date::Date(int d, int m, int y)
+:day(d)
+,month(m)
+,year(y)
+{
+    add(0,0,0);
+}
+
+static std::string add_zero(int arg)
+{
+    return (arg>10)?std::to_string(arg):std::string("0")+std::to_string(arg);
+}
+
+std::string Date::getString()
+{
+    std::string s("");
+    s+=add_zero(day);
+    s+=".";
+    s+=add_zero(month);
+    s+=".";
+    s+=add_zero(year);
+    return s;
+}
+
 int Date::getDay() {
 	return this->day;
 }
@@ -24,42 +54,71 @@ void Date::setYear(int year) {
 	this->year = year;
 }
 
-Date& Date::operator+(const Date&) {
-	// TODO - implement Date::operator+
-	throw "Not yet implemented";
+int getNumberOfDays(int m)
+{
+    return 30; //TODO: zaimplementowac
 }
 
-Date& Date::operator-(const Date&) {
-	// TODO - implement Date::operator-
-	throw "Not yet implemented";
+Date& Date::add(int d, int m int y)
+{
+    //TODO: zrobic testy
+    day+=d;
+    month+=m;
+    year+=y;
+    while(day>getNumberOfDays(month%12))
+    {
+        day-=getNumberOfDays(month%12);
+        month++;
+    }
+    while(month>12)
+    {
+        year++;
+        month-=12;
+    }
+    while(m<=0)
+    {
+        y--;
+        m+=12;
+    }
+    while(d<=0)
+    {
+        m--;
+        d+=getNumberOfDays(m%12);
+    }
 }
 
-bool Date::operator>(const Date&) const{
-	// TODO - implement Date::operator>
-	throw "Not yet implemented";
+Date Date::operator+(const Date& o) const {
+	return Date(day+o.day, month+o.month, year+o.year);
 }
 
-bool Date::operator<(const Date&) const{
-	// TODO - implement Date::operator<
-	throw "Not yet implemented";
+Date Date::operator-(const Date& o) const {
+	return Date(day-o.day, month-o.month, year-o.year);
 }
 
-bool Date::operator==(const Date&) const{
-	// TODO - implement Date::operator==
-	throw "Not yet implemented";
+bool Date::operator>(const Date& o) const{
+    if(year>o.year) return true;
+    if(year==o.year && month>o.month) return true;
+    if(year==o.year && month==o.month && day>o.day) return true;
+    return false;
 }
 
-bool Date::operator>=(const Date&) const{
-	// TODO - implement Date::operator>=
-	throw "Not yet implemented";
+bool Date::operator<(const Date& o) const{
+	return (*this>o || *this==o)?false:true;
 }
 
-bool Date::operator<=(const Date&) const{
-	// TODO - implement Date::operator<=
-	throw "Not yet implemented";
+bool Date::operator==(const Date& o) const{
+	if(year==o.year && month==o.month && day==o.day) return true;
+    else return false;
 }
 
-bool Date::operator!=(const Date&) const{
-	// TODO - implement Date::operator!=
-	throw "Not yet implemented";
+bool Date::operator>=(const Date& o) const{
+	return !(*this<o);
+}
+
+bool Date::operator<=(const Date& o) const{
+	return !(*this>o);
+}
+
+bool Date::operator!=(const Date& o) const{
+	return !(*this==o);
 }
