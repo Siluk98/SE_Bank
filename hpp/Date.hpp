@@ -14,6 +14,7 @@ public:
 	void setMonth(int month);
 	int getYear();
 	void setYear(int year);
+	Date& add(int d, int m, int y);
 	Date operator+(const Date&) const;
 	Date operator-(const Date&) const;
 	bool operator>(const Date&) const;
