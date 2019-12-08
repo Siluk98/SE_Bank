@@ -1,0 +1,61 @@
+# depslib dependency file v1.0
+1575272213 source:c:\users\lithor\desktop\io\bank\cpp\banksettings.cpp
+	"../hpp/BankSettings.hpp"
+
+1575272836 c:\users\lithor\desktop\io\bank\hpp\banksettings.hpp
+
+1575272663 source:c:\users\lithor\desktop\io\bank\cpp\authenticationsystem.cpp
+	"../hpp/AuthenticationSystem.hpp"
+
+1575273722 c:\users\lithor\desktop\io\bank\hpp\authenticationsystem.hpp
+	<string>
+
+1575272804 source:c:\users\lithor\desktop\io\bank\cpp\bankingaccount.cpp
+	"../hpp/BankingAccount.hpp"
+
+1575273744 c:\users\lithor\desktop\io\bank\hpp\bankingaccount.hpp
+	<string>
+
+1514136974 source:c:\users\lithor\desktop\io\bank\main.cpp
+	<iostream>
+
+1575273431 source:c:\users\lithor\desktop\io\bank\cpp\transfer.cpp
+	"../hpp/Transfer.hpp"
+
+1575273789 c:\users\lithor\desktop\io\bank\hpp\transfer.hpp
+	"Date.hpp"
+
+1575273894 c:\users\lithor\desktop\io\bank\hpp\date.hpp
+
+1575273961 source:c:\users\lithor\desktop\io\bank\cpp\date.cpp
+	"../hpp/Date.hpp"
+
+1575273653 source:c:\users\lithor\desktop\io\bank\cpp\transferhandler.cpp
+	"../hpp/TransferHandler.hpp"
+
+1575274024 c:\users\lithor\desktop\io\bank\hpp\transferhandler.hpp
+	<vector>
+	"Transfer.hpp"
+	<fstream>
+
+1575274037 source:c:\users\lithor\desktop\io\bank\cpp\creditcard.cpp
+	"../hpp/CreditCard.hpp"
+
+1575273851 c:\users\lithor\desktop\io\bank\hpp\creditcard.hpp
+	<string>
+
+1575273201 source:c:\users\lithor\desktop\io\bank\cpp\personaldata.cpp
+	"../hpp/PersonalData.hpp"
+
+1575274074 c:\users\lithor\desktop\io\bank\hpp\personaldata.hpp
+	<string>
+	"Date.hpp"
+
+1575273282 source:c:\users\lithor\desktop\io\bank\cpp\systemaccount.cpp
+	"../hpp/SystemAccount.hpp"
+
+1575274087 c:\users\lithor\desktop\io\bank\hpp\systemaccount.hpp
+	<string>
+	<vector>
+	"BankingAccount.hpp"
+
