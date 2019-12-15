@@ -16,7 +16,7 @@ Date::Date(int d, int m, int y)
 
 static std::string add_zero(int arg)
 {
-    return (arg>10)?std::to_string(arg):std::string("0")+std::to_string(arg);
+    return (arg>=10|| arg<=-10)?std::to_string(arg):std::string("0")+std::to_string(arg);
 }
 
 std::string Date::getString()
@@ -61,13 +61,13 @@ int getNumberOfDays(int m)
 
 Date& Date::add(int d, int m int y)
 {
-    //TODO: zrobic testy
     day+=d;
     month+=m;
     year+=y;
-    while(day>getNumberOfDays(month%12))
+    for(int i=0;i<2;i++){
+    while(day>getNumberOfDays(month))
     {
-        day-=getNumberOfDays(month%12);
+        day-=getNumberOfDays(month);
         month++;
     }
     while(month>12)
@@ -75,16 +75,18 @@ Date& Date::add(int d, int m int y)
         year++;
         month-=12;
     }
-    while(m<=0)
+    while(month<=0)
     {
-        y--;
-        m+=12;
+        year--;
+        month+=12;
     }
-    while(d<=0)
+    while(day<=0)
     {
-        m--;
-        d+=getNumberOfDays(m%12);
+        month--;
+        day+=getNumberOfDays(month);
     }
+    }
+    return *this;
 }
 
 Date Date::operator+(const Date& o) const {
