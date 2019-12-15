@@ -18,6 +18,16 @@ static std::string add_zero(int arg)
 {
     return (arg>=10|| arg<=-10)?std::to_string(arg):std::string("0")+std::to_string(arg);
 }
+static std::string add_zero_year(int arg)
+{
+    if(arg>=0&&arg<10) return std::string("000")+std::to_string(arg);
+    else if (arg>=10&&arg<100) return std::string("00")+std::to_string(arg);
+    else if (arg>=100&&arg<1000) return std::string("0")+std::to_string(arg);
+    else if (arg<=0&&arg>-10) return std::string("-000")+std::to_string(arg*(-1));
+    else if (arg<=-10&&arg>-100) return std::string("-00")+std::to_string(arg*(-1));
+    else if (arg<=-100&&arg>-1000) return std::string("-0")+std::to_string(arg*(-1));
+    else return std::to_string(arg);
+}
 
 std::string Date::getString()
 {
@@ -26,7 +36,7 @@ std::string Date::getString()
     s+=".";
     s+=add_zero(month);
     s+=".";
-    s+=add_zero(year);
+    s+=add_zero_year(year);
     return s;
 }
 
@@ -56,7 +66,9 @@ void Date::setYear(int year) {
 
 int getNumberOfDays(int m)
 {
-    return 30; //TODO: zaimplementowac
+    if(m==1||m==3||m==5||m==7||m==9||m==11||m==12) return 31;
+    else if (m==2) return 28;
+    else return 30;
 }
 
 Date& Date::add(int d, int m int y)
