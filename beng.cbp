@@ -2,24 +2,44 @@
 <CodeBlocks_project_file>
 	<FileVersion major="1" minor="6" />
 	<Project>
-		<Option title="beng" />
+		<Option title="sfml_dod" />
 		<Option pch_mode="2" />
-		<Option compiler="gcc" />
+		<Option compiler="mingw_seh" />
 		<Build>
 			<Target title="Debug">
-				<Option output="bin/Debug/beng" prefix_auto="1" extension_auto="1" />
+				<Option output="bin/Debug/sfml_dod" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Debug/" />
 				<Option type="1" />
-				<Option compiler="gcc" />
+				<Option compiler="mingw_seh" />
 				<Compiler>
 					<Add option="-g" />
+					<Add option="-std=c++17" />
 				</Compiler>
+				<Linker>
+					<Add library="sfml-graphics-s-d" />
+					<Add library="sfml-audio-s-d" />
+					<Add library="sfml-window-s-d" />
+					<Add library="sfml-network-s" />
+					<Add library="sfml-system-s" />
+					<Add library="opengl32" />
+					<Add library="freetype" />
+					<Add library="jpeg" />
+					<Add library="gdi32" />
+					<Add library="openal32" />
+					<Add library="flac" />
+					<Add library="vorbisenc" />
+					<Add library="vorbisfile" />
+					<Add library="vorbis" />
+					<Add library="ogg" />
+					<Add library="ws2_32" />
+					<Add library="winmm" />
+				</Linker>
 			</Target>
 			<Target title="Release">
-				<Option output="bin/Release/beng" prefix_auto="1" extension_auto="1" />
+				<Option output="bin/Release/sfml_dod" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Release/" />
 				<Option type="1" />
-				<Option compiler="gcc" />
+				<Option compiler="mingw_seh" />
 				<Compiler>
 					<Add option="-O2" />
 				</Compiler>
@@ -30,13 +50,24 @@
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
+			<Add option="-std=c++14" />
 			<Add option="-fexceptions" />
+			<Add option="-std=c++17" />
+			<Add option="-DSFML_STATIC" />
+			<Add directory="lib/SFML_2.4.2_seh_64bit/include" />
 		</Compiler>
+		<Linker>
+			<Add option="-static-libstdc++" />
+			<Add option="-static-libgcc" />
+			<Add option="-static" />
+			<Add directory="lib/SFML_2.4.2_seh_64bit/lib" />
+		</Linker>
 		<Unit filename="cpp/AuthenticationSystem.cpp" />
 		<Unit filename="cpp/BankSettings.cpp" />
 		<Unit filename="cpp/BankingAccount.cpp" />
 		<Unit filename="cpp/CreditCard.cpp" />
 		<Unit filename="cpp/Date.cpp" />
+		<Unit filename="cpp/FirstState.cpp" />
 		<Unit filename="cpp/PersonalData.cpp" />
 		<Unit filename="cpp/SystemAccount.cpp" />
 		<Unit filename="cpp/Transfer.cpp" />
@@ -50,11 +81,69 @@
 		<Unit filename="hpp/SystemAccount.hpp" />
 		<Unit filename="hpp/Transfer.hpp" />
 		<Unit filename="hpp/TransferHandler.hpp" />
+		<Unit filename="hpp/firstState.hpp" />
+		<Unit filename="lib/Engine/cpp/AUDIOMGR.CPP" />
+		<Unit filename="lib/Engine/cpp/EVENTMGR.CPP" />
+		<Unit filename="lib/Engine/cpp/FONTMGR.CPP" />
+		<Unit filename="lib/Engine/cpp/GFXMGR.CPP" />
+		<Unit filename="lib/Engine/cpp/STATEMGR.CPP" />
+		<Unit filename="lib/Engine/cpp/animation.cpp" />
+		<Unit filename="lib/Engine/cpp/background.cpp" />
+		<Unit filename="lib/Engine/cpp/enemyBullet.cpp" />
+		<Unit filename="lib/Engine/cpp/event.cpp" />
+		<Unit filename="lib/Engine/cpp/game.cpp" />
+		<Unit filename="lib/Engine/cpp/htmlInterpreter.cpp" />
+		<Unit filename="lib/Engine/cpp/memory.cpp" />
+		<Unit filename="lib/Engine/cpp/object.cpp" />
+		<Unit filename="lib/Engine/cpp/playerController.cpp" />
+		<Unit filename="lib/Engine/cpp/quadtree.cpp" />
+		<Unit filename="lib/Engine/cpp/state.cpp" />
+		<Unit filename="lib/Engine/hpp/AUDIOMGR.HPP" />
+		<Unit filename="lib/Engine/hpp/EVENTMGR.HPP" />
+		<Unit filename="lib/Engine/hpp/FONTMGR.HPP" />
+		<Unit filename="lib/Engine/hpp/Functor.hpp" />
+		<Unit filename="lib/Engine/hpp/STATEMGR.HPP" />
+		<Unit filename="lib/Engine/hpp/animation.hpp" />
+		<Unit filename="lib/Engine/hpp/background.hpp" />
+		<Unit filename="lib/Engine/hpp/customTypes.hpp" />
+		<Unit filename="lib/Engine/hpp/enemyBullet.hpp" />
+		<Unit filename="lib/Engine/hpp/errorCalls.hpp" />
+		<Unit filename="lib/Engine/hpp/event.hpp" />
+		<Unit filename="lib/Engine/hpp/eventActions.hpp" />
+		<Unit filename="lib/Engine/hpp/eventPredicates.hpp" />
+		<Unit filename="lib/Engine/hpp/game.hpp" />
+		<Unit filename="lib/Engine/hpp/gfxMgr.hpp" />
+		<Unit filename="lib/Engine/hpp/htmlInterpreter.hpp" />
+		<Unit filename="lib/Engine/hpp/memory.hpp" />
+		<Unit filename="lib/Engine/hpp/object.hpp" />
+		<Unit filename="lib/Engine/hpp/playerController.hpp" />
+		<Unit filename="lib/Engine/hpp/quadtree.hpp" />
+		<Unit filename="lib/Engine/hpp/state.hpp" />
+		<Unit filename="lib/Engine/hpp/testobj.hpp" />
+		<Unit filename="lib/UI/cpp/CSSMGR.CPP" />
+		<Unit filename="lib/UI/cpp/button.cpp" />
+		<Unit filename="lib/UI/cpp/canvas.cpp" />
+		<Unit filename="lib/UI/cpp/checkbox.cpp" />
+		<Unit filename="lib/UI/cpp/cssHandler.cpp" />
+		<Unit filename="lib/UI/cpp/input.cpp" />
+		<Unit filename="lib/UI/cpp/range.cpp" />
+		<Unit filename="lib/UI/cpp/ui.cpp" />
+		<Unit filename="lib/UI/hpp/CSSMGR.HPP" />
+		<Unit filename="lib/UI/hpp/button.hpp" />
+		<Unit filename="lib/UI/hpp/canvas.hpp" />
+		<Unit filename="lib/UI/hpp/checkbox.hpp" />
+		<Unit filename="lib/UI/hpp/cssHandler.hpp" />
+		<Unit filename="lib/UI/hpp/input.hpp" />
+		<Unit filename="lib/UI/hpp/range.hpp" />
+		<Unit filename="lib/UI/hpp/style.hpp" />
+		<Unit filename="lib/UI/hpp/ui.hpp" />
+		<Unit filename="lib/UI/hpp/window.hpp" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />
 			<debugger />
+			<lib_finder disable_auto="1" />
 		</Extensions>
 	</Project>
 </CodeBlocks_project_file>

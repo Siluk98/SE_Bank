@@ -71,7 +71,7 @@ int getNumberOfDays(int m)
     else return 30;
 }
 
-Date& Date::add(int d, int m int y)
+Date& Date::add(int d, int m, int y)
 {
     day+=d;
     month+=m;
