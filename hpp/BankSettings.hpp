@@ -1,16 +1,19 @@
 #ifndef BANKSETTINGS_H
 #define BANKSETTINGS_H
 
+#include <iostream>
+#include <fstream>
 class BankSettings {
 
-private:
-	float intrestRate;
-	BankSettings();
-
 public:
-	void loadSettingsFromFile();
+    BankSettings();
+    ~BankSettings();
+    void setIntrestRate(float intrestRate);
 	float getIntrestRate();
-	void setIntrestRate(float intrestRate);
+private:
+    float intrestRate;
+	bool loadSettingsFromFile();
+	bool saveSettingsToFile();
 };
 
 #endif

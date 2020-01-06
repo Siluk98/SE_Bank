@@ -42,7 +42,7 @@ void AuthenticationState::init()
     //eventmgr->printPredicates();
     //int a;
     //std::cin >> a;
-
+/*
     std::cout << "Music to be loaded" << std::endl;
     audiomgr->loadMusicFromFile("sfx/elu.ogg");
     std::cout << "Music to be played" << std::endl;
@@ -127,16 +127,18 @@ void AuthenticationState::init()
                                     canvas->brushDown();
                                 }
                              }));
-
+*/
     cssmgr->loadFromFile("text.css");
     UI::cssHandler* css = cssmgr->getCss("#test");
     std::cout << css << std::endl;
     css->print();
-    addObject(new UI::Button("test", *css,"","","",
+    /*
+    addObject(new UI::Button("test", *css,"pyta","gfx/empty.png","gfx/empty.png",
                                 Action{[](Object* a, Object* b, std::string arg1, std::string arg2){
                                     std::cout << "ebebebe" << std::endl;
                                 }
                             }));
+                            */
     //UI::cssHandler* css = new UI::cssHandler;
     addObject(new UI::Input("inp", *css,"fonts/arial.ttf"));
 }

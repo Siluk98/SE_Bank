@@ -1,16 +1,29 @@
 #include "../hpp/TransferHandler.hpp"
 
-std::vector<Transfer*> TransferHandler::getTransfers() {
+TransferHandler& TransferHandler::getInstance()
+{
+    static TransferHandler T;
+    return T;
+}
+
+std::vector<std::shared_ptr<Transfer>> TransferHandler::getTransfers() {
 	return this->transfers;
 }
 
-void TransferHandler::setTransfers(std::vector<Transfer*> schedule) {
+void TransferHandler::setTransfers(std::vector<std::shared_ptr<Transfer>> schedule) {
 	this->transfers = schedule;
 }
 
 void TransferHandler::checkForTransfers() {
-	// TODO - implement TransferHandler::checkForTransfers
-	throw "Not yet implemented";
+    Date date = getCurrentDate();
+	for(auto t: transfers)
+    {
+        if(date>=t->getDate())
+        {
+            t->execute();
+        }
+    }
+    std::remove_if(transfers.begin(), transfers.end(), [](std::shared_ptr<Transfer> t)->bool{return t->getIsExpired();});
 }
 
 TransferHandler::TransferHandler() {
@@ -23,12 +36,22 @@ bool TransferHandler::loadTransfersFromFile(std::string filename) {
 	throw "Not yet implemented";
 }
 
-void TransferHandler::addTransfer() {
-	// TODO - implement TransferHandler::addTransfer
-	throw "Not yet implemented";
+bool TransferHandler::addTransfer(unsigned int id, unsigned int idt, unsigned int money, Date date, Date period) {
+    std::shared_ptr<Transfer> t = std::make_shared<Transfer>(id, idt, money,date, period);
+    //if(!t.check()) return false;
+    transfers.push_back(t);
+    return true;
 }
 
+/*
 void TransferHandler::removeTransfer() {
 	// TODO - implement TransferHandler::removeTransfer
 	throw "Not yet implemented";
+}
+*/
+
+Date TransferHandler::getCurrentDate()
+{
+    std::chrono::time_point t = std::chrono::system_clock::now();
+    return Date(1970,1,1+std::chrono::system_clock::to_time_t(t)/86400);
 }

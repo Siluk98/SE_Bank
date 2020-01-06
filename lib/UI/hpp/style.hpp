@@ -3,9 +3,11 @@
 
 namespace UI
 {
-    enum class Style{
-        vertical,
-        horizontal
+    namespace Style{
+        enum class Verticality{
+            vertical,
+            horizontal
+        };
     };
 }
 

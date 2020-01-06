@@ -11,7 +11,7 @@ public:
     ~fontMgr();
     sf::Font* loadFont(std::string name);
     static fontMgr* getInstance();
-    static fontMgr* create();
+    static fontMgr* create(); //obsolete
 private:
     fontMgr();
     std::vector<sf::Font*> fonts;

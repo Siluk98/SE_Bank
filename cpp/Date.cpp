@@ -66,7 +66,8 @@ void Date::setYear(int year) {
 
 int getNumberOfDays(int m)
 {
-    if(m==1||m==3||m==5||m==7||m==9||m==11||m==12) return 31;
+    //if(m==1||m==3||m==5||m==7||m==9||m==11||m==12) return 31;
+    if(m&1||m==12) return 31;
     else if (m==2) return 28;
     else return 30;
 }

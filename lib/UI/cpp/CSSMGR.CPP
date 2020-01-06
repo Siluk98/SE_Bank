@@ -5,9 +5,14 @@
 
 using namespace UI;
 
+std::map<std::string, std::string> cssMgr::colors;
+
 cssMgr::cssMgr(){
-    styles = new std::map<std::string, cssHandler*>;
-    std::cout << "Cstyles: " << styles << std::endl;
+    colors = loadColors("colors.txt");
+    for(auto i : colors)
+    {
+        std::cout << i.first << ":" << i.second << std::endl;
+    }
 };
 cssMgr::~cssMgr(){
     /*
@@ -33,7 +38,7 @@ void cssMgr::loadFromFile(std::string filename)
             std::getline(file,line);
             text += line+'\n';
         }
-        std::cout << text << std::endl;
+        //std::cout << text << std::endl;
         parseCss(text);
         std::cout << "File " << filename << " loaded" << std::endl;
     }
@@ -53,7 +58,7 @@ void cssMgr::parseCss(std::string text){
 
     while(std::regex_search(text, m, prop))
     {
-        std::cout << "m.str(): " << m.str() << std::endl;
+        //std::cout << __FILE__ << ":" << __LINE__ << ":m.str(): " << m.str() << std::endl;
         std::string s = m.str();
         text = m.suffix();
         std::regex names(R"(^(.)*(\n)*\{)");
@@ -90,12 +95,13 @@ void updateCss(std::string s, cssHandler* css)
     {
         v[i] = cleanWord(v[i]);
     }
-    if(v.size()!=3)
+    if(v[1]==":" || v[1]=="") v.erase(v.begin()+1);
+    if(v.size()!=2)
     {
         std::cout << "Style improper" << std::endl;
         return;
     }
-    css->changeAttribute(v[0],v[2]);
+    css->changeAttribute(v[0],v[1]);
 }
 
 void cssMgr::seekNames(std::string text, cssHandler* css)
@@ -104,21 +110,21 @@ void cssMgr::seekNames(std::string text, cssHandler* css)
     std::vector<std::string> names = split(text, ',');
     for(auto i: names)
     {
-        std::cout << "m: '" << i << "'" << std::endl;
+        //std::cout << "m: '" << i << "'" << std::endl;
         i = cleanWord(i);
-        std::cout << "n: '" << i << "'" << std::endl;
-        std::cout << "CHUJCLEAN: " << css << std::endl;
+        //std::cout << "n: '" << i << "'" << std::endl;
+        //std::cout << "CLEAN: " << css << std::endl;
         //styles->insert_or_assign(i, css);
-        (*styles)[i]= css;
-        std::cout << "test" << std::endl;
+        styles[i]= css;
+        //std::cout << "test" << std::endl;
         //std::cout << styles[i] << std::endl;
     }
 }
 
 cssHandler* cssMgr::getCss(std::string name)
 {
-    if(styles->find(name)!=styles->end())
-        return styles->at(name);
+    if(styles.find(name)!=styles.end())
+        return styles.at(name);
     else
         return nullptr;
 }
@@ -139,8 +145,47 @@ static std::string cleanWord(std::string text)
 {
     while(text.back()==' ' ||
           text.back()=='\n' ||
+          text.back()==':' ||
           text.back()=='{') text.pop_back();
     while(text.front()==' ' ||
-          text.front()=='\n') text.erase(0,1);
+          text.front()=='\n'||
+          text.front()==':') text.erase(0,1);
     return text;
+}
+
+std::map<std::string, std::string> cssMgr::loadColors(std::string filename)
+{
+    std::map<std::string, std::string> ret;
+    std::ifstream file(filename);
+    if(!file.good())
+    {
+        std::cout << "Colors could not be loaded" << std::endl;
+        return ret;
+    }
+    else
+    {
+        std::string name;
+        std::string clr;
+        std::string temp;
+        while(!file.eof())
+        {
+            std::getline(file, temp);
+            auto it = temp.find(" ");
+            name = temp.substr(0,it);
+            clr = "#";
+            clr += temp.substr(it+1);
+            std::transform(name.begin(), name.end(), name.begin(),
+                [](unsigned char c){ return std::tolower(c); });
+            ret[name] = clr;
+        }
+        return ret;
+    }
+    file.close();
+}
+
+std::string cssMgr::getColor(std::string name)
+{
+    if(colors.find(name)!= colors.end())
+    return colors[name];
+    else return "null";
 }

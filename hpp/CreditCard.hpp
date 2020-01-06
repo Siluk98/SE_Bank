@@ -1,6 +1,8 @@
 #ifndef CREDITCARD_H
 #define CREDITCARD_H
 #include <string>
+#include <fstream>
+#include <iostream>
 class CreditCard {
 
 private:

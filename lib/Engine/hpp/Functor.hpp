@@ -8,7 +8,7 @@ class Functor
 public:
     Functor(void* args, std::function<void(void*,Object*)> func)
         :arg(args), fun(func){};
-    ~Functor();
+    ~Functor(){};
     void operator() (Object* pthis){
         if(fun) fun(arg,pthis);
     }

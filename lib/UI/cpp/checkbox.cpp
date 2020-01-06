@@ -4,9 +4,10 @@
 #include "../../Engine/hpp/event.hpp"
 #include "../hpp/checkbox.hpp"
 
-UI::Checkbox::Checkbox(std::string id, cssHandler& css)
+UI::Checkbox::Checkbox(std::string _id, cssHandler& css)
 {
     std::cout << "chkbox" << std::endl;
+    id = _id;
     /*
     bind("click", [](void* arg, Component* pthis){
         UI::Checkbox* ptr = dynamic_cast<Checkbox*>(pthis);
@@ -24,8 +25,10 @@ UI::Checkbox::Checkbox(std::string id, cssHandler& css)
     innerWidth = outerWidth-8;
     innerHeight = outerHeight-8;
 
-    outer = new sf::RectangleShape(sf::Vector2f(outerWidth,outerHeight));
-    inner = new sf::RectangleShape(sf::Vector2f(innerWidth,innerHeight));
+    value = 0;
+
+    outer = sf::RectangleShape(sf::Vector2f(outerWidth,outerHeight));
+    inner = sf::RectangleShape(sf::Vector2f(innerWidth,innerHeight));
     hitbox = new sf::IntRect(0,0,outerWidth,outerHeight);
 
     innerColor = sf::Color(0,0,0,0);
@@ -34,14 +37,15 @@ UI::Checkbox::Checkbox(std::string id, cssHandler& css)
 
     applyStyle(css);
 
-    outer->setFillColor(innerColor);
-    outer->setOutlineColor(outerColor);
-    outer->setOutlineThickness(-2);
-    inner->setFillColor(outerColor);
+    outer.setFillColor(innerColor);
+    outer.setOutlineColor(outerColor);
+    outer.setOutlineThickness(-2);
+    inner.setFillColor(outerColor);
+    inner.setFillColor(outerColor);
 
     std::cout << "hitbox: " << hitbox->left << " " << hitbox->top << std::endl;
     isPressed = false;
-    this->id = id;
+
 
 
     addType("checkbox");
@@ -67,15 +71,17 @@ UI::Checkbox::Checkbox(std::string id, cssHandler* css)
 
 UI::Checkbox::~Checkbox()
 {
-    delete outer;
-    delete inner;
+    for(std::pair<std::string,Functor*> i: functions)
+    {
+        delete i.second;
+    }
 }
 
 void UI::Checkbox::draw(sf::RenderTarget &target, sf::RenderStates states) const
 {
-    target.draw(*outer);
+    target.draw(outer);
     if(value)
-        target.draw(*inner);
+        target.draw(inner);
 }
 
 void UI::Checkbox::update()
@@ -102,9 +108,9 @@ void UI::Checkbox::changeStyle(std::string atr, std::string val)
             int i = std::stoi(val);
             outerWidth = i;
             innerWidth = i-8;
-            hitbox->height = outerWidth;
-            outer->setSize(sf::Vector2f(outerWidth,outerHeight));
-            inner->setSize(sf::Vector2f(innerWidth,innerHeight));
+            hitbox->width = outerWidth;
+            outer.setSize(sf::Vector2f(outerWidth,outerHeight));
+            inner.setSize(sf::Vector2f(innerWidth,innerHeight));
         }
         if(atr == "height")
         {
@@ -112,8 +118,8 @@ void UI::Checkbox::changeStyle(std::string atr, std::string val)
             outerHeight = i;
             innerHeight = i-8;
             hitbox->height = outerHeight;
-            outer->setSize(sf::Vector2f(outerWidth,outerHeight));
-            inner->setSize(sf::Vector2f(innerWidth,innerHeight));
+            outer.setSize(sf::Vector2f(outerWidth,outerHeight));
+            inner.setSize(sf::Vector2f(innerWidth,innerHeight));
 
         }
         if(atr == "top")
@@ -128,17 +134,11 @@ void UI::Checkbox::changeStyle(std::string atr, std::string val)
         }
         if(atr == "innerColor")
         {
-            if(val == "red") innerColor = sf::Color::Red;
-            else if(val == "blue") innerColor = sf::Color::Blue;
-            else if(val == "green") innerColor = sf::Color::Green;
-            else innerColor = sf::Color::White;
+            innerColor = UI::Style::getColor(val);
         }
         if(atr == "outerColor")
         {
-            if(val == "red") outerColor = sf::Color::Red;
-            else if(val == "blue") outerColor = sf::Color::Blue;
-            else if(val == "green") outerColor = sf::Color::Green;
-            else outerColor = sf::Color::White;
+            outerColor = UI::Style::getColor(val);
         }
     }
     catch(...)
@@ -161,6 +161,7 @@ bool UI::Checkbox::setValue(bool v)
 bool UI::Checkbox::flipValue()
 {
     value = !value;
+    std::cout << "value: " << value << std::endl;
     return value;
 }
 
@@ -168,7 +169,7 @@ sf::Vector2f UI::Checkbox::moveTo(int x,int y)
 {
     int dw = (outerWidth-innerWidth)/2;
     int dh = (outerHeight-innerHeight)/2;
-    inner->setPosition(x,y);
-    outer->setPosition(x-dw,y-dh);
+    inner.setPosition(x,y);
+    outer.setPosition(x-dw,y-dh);
     return Object::moveTo(x,y);
 }

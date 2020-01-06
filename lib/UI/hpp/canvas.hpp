@@ -25,6 +25,7 @@ namespace UI
         void brushDown();
     private:
         void drawCircle(int x,int y, int r);
+        void drawDiamond(int x,int y, int r);
         void drawPixel(unsigned int x,unsigned int y);
         void floodfill(int x, int y);
         static sf::Color paint;

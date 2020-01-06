@@ -65,57 +65,67 @@
 1575273724 f:\cpp\bank\bank\hpp\authenticationsystem.hpp
 	<string>
 
-1575272806 source:f:\cpp\bank\bank\cpp\bankingaccount.cpp
+1578011688 source:f:\cpp\bank\bank\cpp\bankingaccount.cpp
 	"../hpp/BankingAccount.hpp"
 
-1575273746 f:\cpp\bank\bank\hpp\bankingaccount.hpp
-	<string>
+1578162957 f:\cpp\bank\bank\hpp\bankingaccount.hpp
+	<iostream>
 
-1575272214 source:f:\cpp\bank\bank\cpp\banksettings.cpp
+1577665056 source:f:\cpp\bank\bank\cpp\banksettings.cpp
 	"../hpp/BankSettings.hpp"
 
-1575272838 f:\cpp\bank\bank\hpp\banksettings.hpp
+1577664749 f:\cpp\bank\bank\hpp\banksettings.hpp
+	<iostream>
+	<fstream>
 
 1575274038 source:f:\cpp\bank\bank\cpp\creditcard.cpp
 	"../hpp/CreditCard.hpp"
 
-1575273852 f:\cpp\bank\bank\hpp\creditcard.hpp
+1577664725 f:\cpp\bank\bank\hpp\creditcard.hpp
 	<string>
+	<fstream>
+	<iostream>
 
-1577541159 source:f:\cpp\bank\bank\cpp\date.cpp
+1577665915 source:f:\cpp\bank\bank\cpp\date.cpp
 	"../hpp/Date.hpp"
 
 1575830861 f:\cpp\bank\bank\hpp\date.hpp
 	<string>
 
-1575273202 source:f:\cpp\bank\bank\cpp\personaldata.cpp
+1577665314 source:f:\cpp\bank\bank\cpp\personaldata.cpp
 	"../hpp/PersonalData.hpp"
 
 1575274076 f:\cpp\bank\bank\hpp\personaldata.hpp
 	<string>
 	"Date.hpp"
 
-1575273284 source:f:\cpp\bank\bank\cpp\systemaccount.cpp
+1577758304 source:f:\cpp\bank\bank\cpp\systemaccount.cpp
 	"../hpp/SystemAccount.hpp"
 
-1575274088 f:\cpp\bank\bank\hpp\systemaccount.hpp
+1577979881 f:\cpp\bank\bank\hpp\systemaccount.hpp
 	<string>
 	<vector>
 	"BankingAccount.hpp"
 
-1575273432 source:f:\cpp\bank\bank\cpp\transfer.cpp
+1578162422 source:f:\cpp\bank\bank\cpp\transfer.cpp
 	"../hpp/Transfer.hpp"
 
-1575273790 f:\cpp\bank\bank\hpp\transfer.hpp
+1578162957 f:\cpp\bank\bank\hpp\transfer.hpp
 	"Date.hpp"
+	"BankingAccount.hpp"
+	"BankingSystem.hpp"
 
-1575273654 source:f:\cpp\bank\bank\cpp\transferhandler.cpp
+1577990609 source:f:\cpp\bank\bank\cpp\transferhandler.cpp
 	"../hpp/TransferHandler.hpp"
 
-1575274026 f:\cpp\bank\bank\hpp\transferhandler.hpp
+1578162677 f:\cpp\bank\bank\hpp\transferhandler.hpp
 	<vector>
 	"Transfer.hpp"
 	<fstream>
+	<chrono>
+	<memory>
+	<algorithm>
+	"Date.hpp"
 
 1555874594 source:f:\cpp\bank\bank\lib\menu\menu.cpp
 	"menu.hpp"
@@ -127,7 +137,7 @@
 	<conio.h>
 	<windows.h>
 
-1577541138 source:f:\cpp\bank\bank\main.cpp
+1578162840 source:f:\cpp\bank\bank\main.cpp
 	"lib/Engine/hpp/game.hpp"
 	<iostream>
 	"hpp/firstState.hpp"
@@ -668,16 +678,16 @@
 	<SFML/Audio/Export.hpp>
 	<string>
 
-1536254748 f:\cpp\bank\bank\lib\engine\hpp\fontmgr.hpp
+1577582799 f:\cpp\bank\bank\lib\engine\hpp\fontmgr.hpp
 	<string>
 	<vector>
 	<SFML/Graphics.hpp>
 
-1538090190 f:\cpp\bank\bank\hpp\firststate.hpp
+1577569937 f:\cpp\bank\bank\hpp\firststate.hpp
 	"../lib/Engine/hpp/state.hpp"
 	"../lib/UI/hpp/CSSMGR.HPP"
 
-1537963716 f:\cpp\bank\bank\lib\ui\hpp\cssmgr.hpp
+1568914130 f:\cpp\bank\bank\lib\ui\hpp\cssmgr.hpp
 	"cssHandler.hpp"
 	<map>
 
@@ -743,7 +753,7 @@
 	"eventMgr.hpp"
 	"game.hpp"
 
-1536254766 source:f:\cpp\bank\bank\lib\engine\cpp\fontmgr.cpp
+1577583204 source:f:\cpp\bank\bank\lib\engine\cpp\fontmgr.cpp
 	"../hpp/fontMgr.hpp"
 	<iostream>
 
@@ -770,29 +780,36 @@
 	<SFML/Graphics.hpp>
 	"object.hpp"
 
-1559516648 f:\cpp\bank\bank\lib\ui\hpp\ui.hpp
+1568914034 f:\cpp\bank\bank\lib\ui\hpp\ui.hpp
 	"style.hpp"
 	"cssHandler.hpp"
+	"cssMgr.hpp"
 	"../../Engine/hpp/object.hpp"
 	"../../Engine/hpp/Functor.hpp"
 	<functional>
+	<regex>
+	<algorithm>
+	<cctype>
+	<string>
+	<iostream>
 	"range.hpp"
 	"button.hpp"
 	"canvas.hpp"
 
-1532206278 f:\cpp\bank\bank\lib\ui\hpp\style.hpp
+1568893577 f:\cpp\bank\bank\lib\ui\hpp\style.hpp
 
-1559516488 f:\cpp\bank\bank\lib\engine\hpp\functor.hpp
+1577584570 f:\cpp\bank\bank\lib\engine\hpp\functor.hpp
 	<functional>
 
 1559431522 f:\cpp\bank\bank\lib\ui\hpp\range.hpp
 	"ui.hpp"
 
-1536077496 f:\cpp\bank\bank\lib\ui\hpp\button.hpp
+1577585068 f:\cpp\bank\bank\lib\ui\hpp\button.hpp
 	"ui.hpp"
+	"../../Engine/hpp/FONTMGR.HPP"
 	"../../Engine/hpp/customTypes.hpp"
 
-1535385050 f:\cpp\bank\bank\lib\ui\hpp\canvas.hpp
+1562330915 f:\cpp\bank\bank\lib\ui\hpp\canvas.hpp
 	"ui.hpp"
 	"../../Engine/hpp/customTypes.hpp"
 
@@ -847,26 +864,26 @@
 	"../hpp/stateMgr.hpp"
 	"../hpp/memory.hpp"
 
-1547486889 source:f:\cpp\bank\bank\lib\ui\cpp\button.cpp
+1577585443 source:f:\cpp\bank\bank\lib\ui\cpp\button.cpp
 	"../hpp/button.hpp"
 	<iostream>
 	"../../Engine/hpp/event.hpp"
 
-1547486933 source:f:\cpp\bank\bank\lib\ui\cpp\canvas.cpp
+1563652983 source:f:\cpp\bank\bank\lib\ui\cpp\canvas.cpp
 	"../hpp/Canvas.hpp"
 	<iostream>
 	"../../Engine/hpp/event.hpp"
 	"../../Engine/hpp/game.hpp"
 	<queue>
 
-1559517128 source:f:\cpp\bank\bank\lib\ui\cpp\checkbox.cpp
+1568924671 source:f:\cpp\bank\bank\lib\ui\cpp\checkbox.cpp
 	<iostream>
 	"../../Engine/hpp/state.hpp"
 	"../../Engine/hpp/game.hpp"
 	"../../Engine/hpp/event.hpp"
 	"../hpp/checkbox.hpp"
 
-1559513645 f:\cpp\bank\bank\lib\ui\hpp\checkbox.hpp
+1568921339 f:\cpp\bank\bank\lib\ui\hpp\checkbox.hpp
 	"ui.hpp"
 
 1538002210 source:f:\cpp\bank\bank\lib\ui\cpp\csshandler.cpp
@@ -874,13 +891,13 @@
 	<fstream>
 	<iostream>
 
-1559514954 source:f:\cpp\bank\bank\lib\ui\cpp\cssmgr.cpp
+1568924676 source:f:\cpp\bank\bank\lib\ui\cpp\cssmgr.cpp
 	"../hpp/CSSMGR.HPP"
 	<fstream>
 	<regex>
 	<iostream>
 
-1547486849 source:f:\cpp\bank\bank\lib\ui\cpp\input.cpp
+1568900241 source:f:\cpp\bank\bank\lib\ui\cpp\input.cpp
 	"../hpp/input.hpp"
 	"../hpp/cssHandler.hpp"
 	"../../Engine/hpp/fontMgr.hpp"
@@ -889,7 +906,7 @@
 	"../../Engine/hpp/game.hpp"
 	"../../Engine/hpp/event.hpp"
 
-1536258472 f:\cpp\bank\bank\lib\ui\hpp\input.hpp
+1568900241 f:\cpp\bank\bank\lib\ui\hpp\input.hpp
 	"ui.hpp"
 
 1559432358 source:f:\cpp\bank\bank\lib\ui\cpp\range.cpp
@@ -900,10 +917,10 @@
 	"../../Engine/hpp/game.hpp"
 	"../../Engine/hpp/event.hpp"
 
-1559516614 source:f:\cpp\bank\bank\lib\ui\cpp\ui.cpp
+1577585974 source:f:\cpp\bank\bank\lib\ui\cpp\ui.cpp
 	"../hpp/ui.hpp"
 
-1577543622 source:f:\cpp\bank\bank\cpp\firststate.cpp
+1577658016 source:f:\cpp\bank\bank\cpp\firststate.cpp
 	"../hpp/firstState.hpp"
 	<iostream>
 	"../lib/Engine/hpp/game.hpp"
@@ -911,4 +928,11 @@
 	"../lib/UI/hpp/canvas.hpp"
 	"../lib/UI/hpp/input.hpp"
 	"../lib/Engine/hpp/AUDIOMGR.HPP"
+
+1578162696 f:\cpp\bank\bank\hpp\bankingsystem.hpp
+	<memory>
+	<map>
+
+1578011939 source:f:\cpp\bank\bank\cpp\bankingsystem.cpp
+	"../hpp/BankingSystem.hpp"
 

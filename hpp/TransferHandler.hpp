@@ -1,19 +1,25 @@
-#ifndef TRANSFERHANDLER_H
-#define TRANSFERHANDLER_H
+#ifndef TRANSFERHANDLER_HPP
+#define TRANSFERHANDLER_HPP
 #include <vector>
 #include "Transfer.hpp"
 #include <fstream>
+#include <chrono>
+#include <memory>
+#include <algorithm>
+#include "Date.hpp"
 class TransferHandler {
 public:
-    TransferHandler();
-	std::vector<Transfer*> getTransfers();
-	void setTransfers(std::vector<Transfer*> schedule);
-	void addTransfer();
+    static TransferHandler& getInstance();
+	std::vector<std::shared_ptr<Transfer>> getTransfers();
+	void setTransfers(std::vector<std::shared_ptr<Transfer>> schedule);
+	bool addTransfer(unsigned int id, unsigned int idt, unsigned int money, Date date, Date Period);
+	Date getCurrentDate();
 private:
-	std::vector<Transfer*> transfers;
+    TransferHandler();
+	std::vector<std::shared_ptr<Transfer>> transfers;
 	void checkForTransfers();
 	bool loadTransfersFromFile(std::string filename);
-	void removeTransfer();
+	//void removeTransfer();
 };
 
 #endif

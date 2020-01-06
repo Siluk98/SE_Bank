@@ -23,6 +23,7 @@ sf::Font* fontMgr::loadFont(std::string name)
     return font;
 }
 
+//Obsolete
 fontMgr* fontMgr::create()
 {
     if(instance == nullptr)
@@ -32,5 +33,6 @@ fontMgr* fontMgr::create()
 
 fontMgr* fontMgr::getInstance()
 {
+    static fontMgr* instance = new fontMgr;
     return instance;
 }

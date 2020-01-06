@@ -24,8 +24,8 @@ namespace UI
         sf::Color outerColor;
         sf::Color innerColor;
         std::string id;
-        sf::RectangleShape* outer;
-        sf::RectangleShape* inner;
+        sf::RectangleShape outer;
+        sf::RectangleShape inner;
         bool value;
         bool isPressed;
         int innerWidth;

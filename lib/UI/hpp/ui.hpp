@@ -3,12 +3,30 @@
 
 #include "style.hpp"
 #include "cssHandler.hpp"
+#include "cssMgr.hpp"
 #include "../../Engine/hpp/object.hpp" //Rebuild engine to lib
 #include "../../Engine/hpp/Functor.hpp"
 #include <functional>
+#include <regex>
+#include <algorithm>
+#include <cctype>
+#include <string>
+#include <iostream>
 
 namespace UI
 {
+    namespace Style
+    {
+        sf::Color getColor(std::string val);
+        unsigned char isHex(std::string val);
+        unsigned char isHexA(std::string val);
+        unsigned char isRGB(std::string val);
+        unsigned char isRGBA(std::string val);
+        unsigned char hexToChar(char a, char b);
+        unsigned char hexCharToNumber(char a);
+        enum class BoxSizing{ContentBox,BorderBox,PaddingBox};
+    }
+
     class Component :public Object
     {
     public:

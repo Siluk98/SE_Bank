@@ -26,7 +26,7 @@ namespace UI
         sf::RectangleShape* field;
         sf::RectangleShape* caret;
         sf::Text* text;
-        sf::Font* font;
+        sf::Font* font; //observer_ptr
         bool focus;
         std::string value;
         void caretBlink();

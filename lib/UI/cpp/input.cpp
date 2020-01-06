@@ -52,7 +52,7 @@ UI::Input::~Input(){
     delete text;
     delete field;
     delete caret;
-    delete font; // dangling pointer
+    //delete font; // dangling pointer
 }
 
 void UI::Input::update()

@@ -5,10 +5,12 @@ std::string SystemAccount::getLogin() {
 	throw "Not yet implemented";
 }
 
+/*
 void SystemAccount::setLogin(std::string Login) {
 	// TODO - implement SystemAccount::setLogin
 	throw "Not yet implemented";
 }
+*/
 
 std::string SystemAccount::getPassword() {
 	// TODO - implement SystemAccount::getPassword

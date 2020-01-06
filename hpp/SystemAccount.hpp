@@ -4,18 +4,9 @@
 #include <vector>
 #include "BankingAccount.hpp"
 class SystemAccount {
-
-private:
-	std::string login;
-	std::string password;
-
-	int ID;
-	bool isAdmin;
-	bool isVindicator;
-
 public:
 	std::string getLogin();
-	void setLogin(std::string Login);
+	//void setLogin(std::string Login);
 	std::string getPassword();
 	void setPassword(std::string Password);
 	void getAccountList();
@@ -27,6 +18,15 @@ public:
 	void setIsAdmin(bool isAdmin);
 	bool getIsVindicator();
 	void setIsVindicator(bool isVindicator);
+
+private:
+	std::string login;
+	std::string password;
+
+	unsigned int ID;
+	static unsigned int ID_counter;
+	bool isAdmin;
+	bool isVindicator;
 };
 
 #endif

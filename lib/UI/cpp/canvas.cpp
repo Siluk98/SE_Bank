@@ -39,7 +39,7 @@ Canvas::Canvas(std::string id, int left, int top, unsigned int width, unsigned i
                 unsigned int brush = brushSize;
                 while(brush!=0)
                 {
-                    c->drawCircle(pos.x,pos.y,brush);
+                    c->drawDiamond(pos.x,pos.y,brush);
                     brush--;
                 }
              }});
@@ -97,6 +97,41 @@ void Canvas::drawCircle(int x0, int y0, int radius)
             dx += 2;
             err += dx - (radius << 1);
         }
+    }
+}
+
+void Canvas::drawDiamond(int x, int y, int r)
+{
+    drawspace->setPixel(x-1,y,paint);
+    if(x-r<0 || y-r<0 || x+r>width || y+r>height) return;
+    int cx = x-r;
+    int cy = y;
+    for(int j=r;j>0;j--)
+    {
+    for(int i=0;i<r-1;i++)
+    {
+        drawspace->setPixel(cx,cy,paint);
+        cx++;
+        cy--;
+    }
+    for(int i=0;i<r-1;i++)
+    {
+        drawspace->setPixel(cx,cy,paint);
+        cx++;
+        cy++;
+    }
+    for(int i=0;i<r-1;i++)
+    {
+        drawspace->setPixel(cx,cy,paint);
+        cx--;
+        cy++;
+    }
+    for(int i=0;i<r-1;i++)
+    {
+        drawspace->setPixel(cx,cy,paint);
+        cx--;
+        cy--;
+    }
     }
 }
 
