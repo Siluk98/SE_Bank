@@ -49,7 +49,6 @@ void AuthenticationState::init()
     audiomgr->playMusic();
     std::cout << "Music played" << std::endl;
 
-
     addObject(new UI::Button("btNew",2,2,"","gfx/btNew.png","gfx/btNewC.png",sf::Color::White,Action{
                                      [](Object* a, Object* b, std::string arg1, std::string arg2){
                                         Game* game = Game::getGame();
@@ -132,13 +131,15 @@ void AuthenticationState::init()
     UI::cssHandler* css = cssmgr->getCss("#test");
     std::cout << css << std::endl;
     css->print();
-    /*
+
+
     addObject(new UI::Button("test", *css,"pyta","gfx/empty.png","gfx/empty.png",
                                 Action{[](Object* a, Object* b, std::string arg1, std::string arg2){
+                                    //UI::Input* inp = dynamic_cast<UI::Input*>()
                                     std::cout << "ebebebe" << std::endl;
                                 }
                             }));
-                            */
+
     //UI::cssHandler* css = new UI::cssHandler;
     addObject(new UI::Input("inp", *css,"fonts/arial.ttf"));
 }
