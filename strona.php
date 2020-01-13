@@ -32,7 +32,7 @@ address<br><input type="text" name="address"><br><br>
 login<br><input type="text" name="login"><br><br>
 password<br><input type="text" name="password"><br><br>
 
-<input type="submit" name="co" value="Potwierdź">
+<input type="submit" name="co" value="Potwierdz">
 </form>
 
 <?php 
