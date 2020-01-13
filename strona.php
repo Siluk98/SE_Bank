@@ -36,7 +36,7 @@ password<br><input type="text" name="password"><br><br>
 </form>
 
 <?php 
-$conn=@mysqli_connect("localhost","turboreal","zaq1@WSX","turboreal");
+$conn=@mysqli_connect("localhost","login","haslo","baza");
 if(!$conn) die('Brak polaczenia z serwerem');
 
 $name =$_POST['name'];
