@@ -22,20 +22,22 @@ int main()
 	cout << data_01.getString() << endl;
 	data_01 = data_01 - data_02;
 	cout << data_01.getString() << endl;
+	data_01 = data_01 + data_02;
+	cout << data_01.getString() << endl;
 
-	if (data_02>data_01)cout << "Jest git wiêksze" << endl;
-	if (data_01<data_02)cout << "Jest git mniejsze" << endl;
-	if (data_02 == data_02)cout << "Jest git równe" << endl;
-	if (data_02 >= data_01)cout << "Jest git wiekszorowne" << endl;
-	if (data_01<data_02)cout << "Jest git mniejszorówne" << endl;
-	if (data_02 != data_01)cout << "Jest git nierowne" << endl;
+	if (data_02>data_01)cout << "WiÄ™ksze" << endl;
+	if (data_01<data_02)cout << "Mniejsze" << endl;
+	if (data_02 == data_02)cout << "RÃ³wne" << endl;
+	if (data_02 >= data_01)cout << "WiekszoRowne" << endl;
+	if (data_01<data_02)cout << "MniejszoRÃ³wne" << endl;
+	if (data_02 != data_01)cout << "Nierowne" << endl;
 
 	cout << data_02.getString() << endl;
-	data_02.setDay(13);
+	data_02.setDay(18);
 	cout << data_02.getString() << endl;
-	data_02.setMonth(12);
+	data_02.setMonth(9);
 	cout << data_02.getString() << endl;
-	data_02.setYear(2018);
+	data_02.setYear(1998);
 	cout << data_02.getString() << endl;
 
 	cout << data_03.getString() << endl;
@@ -47,5 +49,5 @@ int main()
 
 	system("pause");
 	return 0;
-    
+
 }
