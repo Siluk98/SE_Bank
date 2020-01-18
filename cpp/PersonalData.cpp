@@ -4,45 +4,50 @@ std::string PersonalData::getName() {
 	return this->name;
 }
 
-void PersonalData::setName(std::string name) {
-	// TODO - implement PersonalData::setName
-	throw "Not yet implemented";
+void PersonalData::setName(std::string Imie) {
+	//throw "Not yet implemented";
+
+	name=Imie; //Suhar
 }
 
 std::string PersonalData::getSecondName() {
 	return this->secondName;
 }
 
-void PersonalData::setSecondName(std::string secondName) {
-	// TODO - implement PersonalData::setSecondName
-	throw "Not yet implemented";
+void PersonalData::setSecondName(std::string DrugieImie) {
+	
+	//throw "Not yet implemented";
+	secondName=DrugieImie;//Suhar
 }
 
 std::string PersonalData::getLastName() {
 	return this->lastName;
 }
 
-void PersonalData::setLastName(std::string lastName) {
-	// TODO - implement PersonalData::setLastName
-	throw "Not yet implemented";
+void PersonalData::setLastName(std::string Nazwisko) {
+	
+	//throw "Not yet implemented";
+	lastName=Nazwisko;
 }
 
 Date PersonalData::getDateOfBirth() {
 	return this->dateOfBirth;
 }
 
-void PersonalData::setDateOfBirth(Date dateOfBirth) {
-	// TODO - implement PersonalData::setDateOfBirth
-	throw "Not yet implemented";
+void PersonalData::setDateOfBirth(Date DataUrodzenia) {
+	
+	//throw "Not yet implemented";
+	dateOfBirth=DataUrodzenia;
 }
 
 std::string PersonalData::getCitizenship() {
 	return this->citizenship;
 }
 
-void PersonalData::setCitizenship(std::string citizenship) {
-	// TODO - implement PersonalData::setCitizenship
-	throw "Not yet implemented";
+void PersonalData::setCitizenship(std::string Obywatelstwo) {
+	
+	//throw "Not yet implemented";
+	citizenship=Obywatelstwo;
 }
 
 int PersonalData::getID() {
@@ -51,38 +56,43 @@ int PersonalData::getID() {
 }
 
 std::string PersonalData::getPESEL() {
-	// TODO - implement PersonalData::getPESEL
-	throw "Not yet implemented";
+	
+	//throw "Not yet implemented";
+	return this->PESEL;
 }
 
-void PersonalData::setPESEL(std::string PESEL) {
-	// TODO - implement PersonalData::setPESEL
-	throw "Not yet implemented";
+void PersonalData::setPESEL(std::string pesel) {
+	
+	//throw "Not yet implemented";
+	PESEL=pesel;
 }
 
 std::string PersonalData::getPhoneNr() {
 	return this->phoneNr;
 }
 
-void PersonalData::setPhoneNr(std::string phoneNr) {
-	// TODO - implement PersonalData::setPhoneNr
-	throw "Not yet implemented";
+void PersonalData::setPhoneNr(std::string NrTel) {
+	
+	//throw "Not yet implemented";
+	phoneNr=NrTel;
 }
 
 std::string PersonalData::getEmail() {
 	return this->email;
 }
 
-void PersonalData::setEmail(std::string email) {
-	// TODO - implement PersonalData::setEmail
-	throw "Not yet implemented";
+void PersonalData::setEmail(std::string Email) {
+	
+	//throw "Not yet implemented";
+	email=Email;
 }
 
 std::string PersonalData::getAddress() {
 	return this->address;
 }
 
-void PersonalData::setAddress(std::string address) {
-	// TODO - implement PersonalData::setAddress
-	throw "Not yet implemented";
+void PersonalData::setAddress(std::string Address) {
+	
+	//throw "Not yet implemented";
+	address=Address;
 }
