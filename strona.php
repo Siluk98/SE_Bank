@@ -68,6 +68,20 @@ else
 			
 }
 }
+$wynik=$conn->query('SELECT * FROM dane;') or die ('Nie ma');
+
+if($wynik->num_rows>0)
+{
+	echo('<table border=1');	
+	echo('<tr><th>name</th><th>secondName</th><th>lastName</th><th>dateOfBirth</th><th>citizenship</th><th>pesel</th><th>phoneNr</th><th>mail</th><th>address</th><th>login</th><th>password</th></tr>');
+	while($rekord=$wynik->fetch_array()){
+		$rec=$rekord['id'];
+		echo("<form method='POST'><tr><td>".$rekord['name']."</td><td>".$rekord['secondName']."</td><td>".$rekord['lastName']."</td><td>".$rekord['dateOfBirth']."</td><td>".$rekord['citizenship']."</td><td>".$rekord['pesel']."</td><td>".$rekord['phoneNr']."</td><td>".$rekord['mail']."</td><td>".$rekord['address']."</td><td>".$rekord['login']."</td><td>".$rekord['password']."</td></form>
+		</form></td>
+		</tr>");
+	}
+	echo('</table>');
+}
 ?>
 </body>
 </html>
