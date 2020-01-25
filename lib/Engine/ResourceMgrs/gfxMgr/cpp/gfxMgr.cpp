@@ -34,4 +34,3 @@ int GfxMgr::getMapSize()
     return GfxMgr::textures.size();
 }
 
-

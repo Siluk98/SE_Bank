@@ -24,6 +24,12 @@ CssMgr::~CssMgr(){
     */
 };
 
+CssMgr* const CssMgr::getInstance()
+{
+    static CssMgr* inst = new CssMgr;
+    return inst;
+}
+
 void CssMgr::loadFromFile(std::string filename)
 {
     std::ifstream file;

@@ -1,31 +1,15 @@
 #include "../hpp/firstState.hpp"
-#include <iostream>
-#include "../lib/Engine/hpp/game.hpp"
-#include "../lib/UI/hpp/button.hpp"
-#include "../lib/UI/hpp/canvas.hpp"
-#include "../lib/UI/hpp/input.hpp"
-#include "../lib/Engine/hpp/AUDIOMGR.HPP"
-//#include "../lib/Engine/hpp/eventPredicates.hpp"
-
-AuthenticationState::AuthenticationState(gfxMgr* g,eventMgr* e, audioMgr* a)
-{
-    std::cout << "AuthenticationState: const" << std::endl;
-    gfxmgr = g;
-    eventmgr = e;
-    audiomgr = a;
-    if(cssmgr == nullptr)
-        cssmgr = new UI::cssMgr();
-    //initDefaultPredicates(e);
-}
 
 AuthenticationState::AuthenticationState()
 {
     std::cout << "AuthenticationState: const" << std::endl;
+    /*
     gfxmgr = nullptr;
     eventmgr = eventMgr::getInstance();
     if(cssmgr == nullptr)
         cssmgr = new UI::cssMgr();
     audiomgr = new audioMgr();
+    */
 }
 
 AuthenticationState::~AuthenticationState()
@@ -36,8 +20,6 @@ AuthenticationState::~AuthenticationState()
 void AuthenticationState::init()
 {
     std::cout << "AuthenticationState: init" << std::endl;
-    eventmgr = eventMgr::getInstance();
-    std::cout << eventmgr << std::endl;
     //initDefaultPredicates(eventmgr);
     //eventmgr->printPredicates();
     //int a;
@@ -127,6 +109,7 @@ void AuthenticationState::init()
                                 }
                              }));
 */
+    UI::CssMgr* cssmgr = UI::CssMgr::getInstance();
     cssmgr->loadFromFile("text.css");
     UI::cssHandler* css = cssmgr->getCss("#test");
     std::cout << css << std::endl;
@@ -149,7 +132,7 @@ void AuthenticationState::cleanup()
     std::cout << "AuthenticationState: cleanup" << std::endl;
 }
 
-void AuthenticationState::handleEvents(sf::RenderWindow* window)
+void AuthenticationState::handleEvents(sf::RenderWindow& window)
 {
     //std::cout << "AuthenticationState: events" << std::endl;
     if(!paused)
@@ -163,14 +146,14 @@ void AuthenticationState::handleEvents(sf::RenderWindow* window)
     }
 
     sf::Event event;
-    while (window->pollEvent(event))
+    while (window.pollEvent(event))
     {
         if(!paused)
         {
             if (event.type == sf::Event::Closed)
             {
-                window->close();
-                Game::getGame()->stop();
+                window.close();
+                Engine::stop();
             }
             if (event.type == sf::Event::TextEntered)
             {
@@ -218,12 +201,12 @@ void AuthenticationState::update()
 
 }
 
-void AuthenticationState::render(sf::RenderWindow* window)
+void AuthenticationState::render(sf::RenderWindow& window)
 {
     //std::cout << "AuthenticationState: render" << std::endl;
     for(auto el : objects)
     {
         //std::cout << el << std::endl;
-        if(el!=nullptr) window->draw(*el);
+        if(el!=nullptr) window.draw(*el);
     }
 }

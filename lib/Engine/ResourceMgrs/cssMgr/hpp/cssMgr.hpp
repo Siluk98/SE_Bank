@@ -11,6 +11,7 @@ namespace UI
     public:
         CssMgr();
         ~CssMgr();
+        static CssMgr* const getInstance();
         void loadFromFile(std::string filename);
         cssHandler* getCss(std::string);
         static std::string getColor(std::string);

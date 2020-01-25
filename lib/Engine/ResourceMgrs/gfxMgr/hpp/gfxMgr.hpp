@@ -9,7 +9,6 @@ class GfxMgr
 public:
     GfxMgr();
     ~GfxMgr();
-
     static sf::Texture* loadTexture(std::string);
     static int getMapSize();
 private:

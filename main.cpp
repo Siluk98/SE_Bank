@@ -1,11 +1,11 @@
-#include "lib/Engine/hpp/game.hpp"
 #include <iostream>
+#include "lib/Engine/Core/hpp/engine.hpp"
 #include "hpp/firstState.hpp"
 
 int main()
 {
-    Game game;
-    game.pushState(new AuthenticationState);
-    game.run();
+    Engine engine;
+    engine.pushState(new AuthenticationState);
+    engine.run();
     return 0;
 }

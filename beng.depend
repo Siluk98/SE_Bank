@@ -137,9 +137,9 @@
 	<conio.h>
 	<windows.h>
 
-1578515249 source:f:\cpp\bank\bank\main.cpp
-	"lib/Engine/hpp/game.hpp"
+1579951866 source:f:\cpp\bank\bank\main.cpp
 	<iostream>
+	"lib/Engine/Core/hpp/engine.hpp"
 	"hpp/firstState.hpp"
 
 1547934422 f:\cpp\bank\bank\lib\engine\hpp\game.hpp
@@ -683,9 +683,14 @@
 	<map>
 	<SFML/Graphics.hpp>
 
-1577569937 f:\cpp\bank\bank\hpp\firststate.hpp
-	"../lib/Engine/hpp/state.hpp"
-	"../lib/UI/hpp/CSSMGR.HPP"
+1579953101 f:\cpp\bank\bank\hpp\firststate.hpp
+	"../lib/Engine/ResourceMgrs/stateMgr/hpp/state.hpp"
+	"../lib/Engine/ResourceMgrs/cssMgr/hpp/cssMgr.hpp"
+	<iostream>
+	"../lib/Engine/Core/hpp/engine.hpp"
+	"../lib/Engine/UI/hpp/button.hpp"
+	"../lib/Engine/UI/hpp/canvas.hpp"
+	"../lib/Engine/UI/hpp/input.hpp"
 
 1568914130 f:\cpp\bank\bank\lib\ui\hpp\cssmgr.hpp
 	"cssHandler.hpp"
@@ -935,4 +940,227 @@
 
 1578011939 source:f:\cpp\bank\bank\cpp\bankingsystem.cpp
 	"../hpp/BankingSystem.hpp"
+
+1578603686 source:f:\cpp\bank\bank\lib\engine\core\cpp\engine.cpp
+	"../hpp/engine.hpp"
+
+1578603091 f:\cpp\bank\bank\lib\engine\core\hpp\engine.hpp
+	<SFML/Graphics.hpp>
+	<vector>
+	<chrono>
+	<memory>
+	<random>
+	<iostream>
+	"object.hpp"
+	"../../ResourceMgrs/gfxMgr/hpp/gfxMgr.hpp"
+	"../../ResourceMgrs/eventMgr/hpp/eventMgr.hpp"
+	"../../ResourceMgrs/stateMgr/hpp/stateMgr.hpp"
+	"../../ResourceMgrs/fontMgr/hpp/fontMgr.hpp"
+	"../../ResourceMgrs/audioMgr/hpp/audioMgr.hpp"
+
+1570540429 f:\cpp\bank\bank\lib\engine\core\hpp\object.hpp
+	"../../ResourceMgrs/gfxMgr/hpp/animation.hpp"
+	"customTypes.hpp"
+
+1523469794 f:\cpp\bank\bank\lib\engine\resourcemgrs\gfxmgr\hpp\animation.hpp
+	<SFML/Graphics.hpp>
+	<string>
+	"gfxMgr.hpp"
+
+1579952415 f:\cpp\bank\bank\lib\engine\resourcemgrs\gfxmgr\hpp\gfxmgr.hpp
+	<SFML/Graphics.hpp>
+
+1534509850 f:\cpp\bank\bank\lib\engine\core\hpp\customtypes.hpp
+	<type_traits>
+
+1578543315 f:\cpp\bank\bank\lib\engine\resourcemgrs\eventmgr\hpp\eventmgr.hpp
+	<functional>
+	<map>
+	"../../../Core/hpp/object.hpp"
+	"../../../Core/hpp/customTypes.hpp"
+
+1570573890 f:\cpp\bank\bank\lib\engine\resourcemgrs\statemgr\hpp\statemgr.hpp
+	"state.hpp"
+	<string>
+	<vector>
+
+1578603516 f:\cpp\bank\bank\lib\engine\resourcemgrs\statemgr\hpp\state.hpp
+	<vector>
+	"../../../Core/hpp/object.hpp"
+
+1578602490 f:\cpp\bank\bank\lib\engine\resourcemgrs\fontmgr\hpp\fontmgr.hpp
+	<string>
+	<vector>
+	<SFML/Graphics.hpp>
+
+1570573943 f:\cpp\bank\bank\lib\engine\resourcemgrs\audiomgr\hpp\audiomgr.hpp
+	<map>
+	<SFML/Audio.hpp>
+
+1578543360 source:f:\cpp\bank\bank\lib\engine\core\cpp\object.cpp
+	"../hpp/object.hpp"
+	<iostream>
+	"../../ResourceMgrs/eventMgr/hpp/event.hpp"
+	"../../ResourceMgrs/gfxMgr/hpp/animation.hpp"
+	"../hpp/errorCalls.hpp"
+
+1578542672 f:\cpp\bank\bank\lib\engine\resourcemgrs\eventmgr\hpp\event.hpp
+	<functional>
+	"../../../Core/hpp/object.hpp"
+	"eventMgr.hpp"
+
+1546381885 f:\cpp\bank\bank\lib\engine\core\hpp\errorcalls.hpp
+
+1570573960 source:f:\cpp\bank\bank\lib\engine\resourcemgrs\audiomgr\cpp\audiomgr.cpp
+	"../hpp/audioMgr.hpp"
+	<SFML/Audio.hpp>
+	<iostream>
+
+1538002210 source:f:\cpp\bank\bank\lib\engine\resourcemgrs\cssmgr\cpp\csshandler.cpp
+	"../hpp/cssHandler.hpp"
+	<fstream>
+	<iostream>
+
+1538002196 f:\cpp\bank\bank\lib\engine\resourcemgrs\cssmgr\hpp\csshandler.hpp
+	<string>
+	<map>
+
+1579952659 source:f:\cpp\bank\bank\lib\engine\resourcemgrs\cssmgr\cpp\cssmgr.cpp
+	"../hpp/cssMgr.hpp"
+	<fstream>
+	<regex>
+	<iostream>
+
+1579952685 f:\cpp\bank\bank\lib\engine\resourcemgrs\cssmgr\hpp\cssmgr.hpp
+	"cssHandler.hpp"
+	<map>
+
+1578543360 source:f:\cpp\bank\bank\lib\engine\resourcemgrs\eventmgr\cpp\event.cpp
+	"../hpp/event.hpp"
+	<iostream>
+	"../hpp/eventMgr.hpp"
+
+1578543315 source:f:\cpp\bank\bank\lib\engine\resourcemgrs\eventmgr\cpp\eventmgr.cpp
+	"../hpp/eventMgr.hpp"
+	<iostream>
+	"../hpp/eventActions.hpp"
+	"../hpp/eventPredicates.hpp"
+
+1570573873 f:\cpp\bank\bank\lib\engine\resourcemgrs\eventmgr\hpp\eventactions.hpp
+	"event.hpp"
+	"eventMgr.hpp"
+	<iostream>
+
+1578538880 f:\cpp\bank\bank\lib\engine\resourcemgrs\eventmgr\hpp\eventpredicates.hpp
+	"event.hpp"
+	"eventMgr.hpp"
+	"../../../Core/hpp/engine.hpp"
+
+1578602490 source:f:\cpp\bank\bank\lib\engine\resourcemgrs\fontmgr\cpp\fontmgr.cpp
+	"../hpp/fontMgr.hpp"
+	<iostream>
+
+1570573608 source:f:\cpp\bank\bank\lib\engine\resourcemgrs\gfxmgr\cpp\animation.cpp
+	"../hpp/animation.hpp"
+	"../hpp/gfxMgr.hpp"
+	<iostream>
+
+1579952416 source:f:\cpp\bank\bank\lib\engine\resourcemgrs\gfxmgr\cpp\gfxmgr.cpp
+	"../hpp/gfxMgr.hpp"
+	<SFML/Graphics.hpp>
+	<iostream>
+
+1570541226 source:f:\cpp\bank\bank\lib\engine\resourcemgrs\statemgr\cpp\state.cpp
+	"../hpp/state.hpp"
+
+1578603091 source:f:\cpp\bank\bank\lib\engine\resourcemgrs\statemgr\cpp\statemgr.cpp
+	"../hpp/stateMgr.hpp"
+
+1578537670 source:f:\cpp\bank\bank\lib\engine\ui\cpp\button.cpp
+	"../hpp/button.hpp"
+	<iostream>
+	"../../ResourceMgrs/eventMgr/hpp/event.hpp"
+
+1578537643 f:\cpp\bank\bank\lib\engine\ui\hpp\button.hpp
+	"ui.hpp"
+	"../../Core/hpp/customTypes.hpp"
+	"../../ResourceMgrs/fontMgr/hpp/fontMgr.hpp"
+
+1570572918 f:\cpp\bank\bank\lib\engine\ui\hpp\ui.hpp
+	"style.hpp"
+	"../../ResourceMgrs/cssMgr/hpp/cssHandler.hpp"
+	"../../ResourceMgrs/cssMgr/hpp/cssMgr.hpp"
+	"../../Core/hpp/object.hpp"
+	"../../Core/hpp/functor.hpp"
+	<functional>
+	<regex>
+	<algorithm>
+	<cctype>
+	<string>
+	<iostream>
+	"range.hpp"
+	"button.hpp"
+	"canvas.hpp"
+
+1568893577 f:\cpp\bank\bank\lib\engine\ui\hpp\style.hpp
+
+1568906020 f:\cpp\bank\bank\lib\engine\core\hpp\functor.hpp
+	<functional>
+	"object.hpp"
+
+1559431522 f:\cpp\bank\bank\lib\engine\ui\hpp\range.hpp
+	"ui.hpp"
+
+1570573229 f:\cpp\bank\bank\lib\engine\ui\hpp\canvas.hpp
+	"ui.hpp"
+	"../../Core/hpp/customTypes.hpp"
+
+1572962892 source:f:\cpp\bank\bank\lib\engine\ui\cpp\canvas.cpp
+	"../hpp/Canvas.hpp"
+	<iostream>
+	"../../ResourceMgrs/eventMgr/hpp/event.hpp"
+	"../../Core/hpp/engine.hpp"
+	<queue>
+
+1578542749 source:f:\cpp\bank\bank\lib\engine\ui\cpp\checkbox.cpp
+	<iostream>
+	"../../ResourceMgrs/stateMgr/hpp/state.hpp"
+	"../../Core/hpp/engine.hpp"
+	"../../ResourceMgrs/eventMgr/hpp/event.hpp"
+	"../hpp/checkbox.hpp"
+
+1568921339 f:\cpp\bank\bank\lib\engine\ui\hpp\checkbox.hpp
+	"ui.hpp"
+
+1572962892 source:f:\cpp\bank\bank\lib\engine\ui\cpp\input.cpp
+	"../hpp/input.hpp"
+	"../../ResourceMgrs/cssMgr/hpp/cssHandler.hpp"
+	"../../ResourceMgrs/fontMgr/hpp/fontMgr.hpp"
+	<iostream>
+	"../../ResourceMgrs/stateMgr/hpp/state.hpp"
+	"../../Core/hpp/engine.hpp"
+	"../../ResourceMgrs/eventMgr/hpp/event.hpp"
+
+1568900241 f:\cpp\bank\bank\lib\engine\ui\hpp\input.hpp
+	"ui.hpp"
+
+1578602283 source:f:\cpp\bank\bank\lib\engine\ui\cpp\progressbar.cpp
+	"../hpp/progressBar.hpp"
+	"../../ResourceMgrs/fontMgr/hpp/fontMgr.hpp"
+	<iostream>
+
+1568922449 f:\cpp\bank\bank\lib\engine\ui\hpp\progressbar.hpp
+	"ui.hpp"
+	<algorithm>
+
+1570573381 source:f:\cpp\bank\bank\lib\engine\ui\cpp\range.cpp
+	"../hpp/range.hpp"
+	"../../ResourceMgrs/cssMgr/hpp/cssHandler.hpp"
+	<iostream>
+	"../../ResourceMgrs/stateMgr/hpp/state.hpp"
+	"../../Core/hpp/engine.hpp"
+	"../../ResourceMgrs/eventMgr/hpp/event.hpp"
+
+1570573425 source:f:\cpp\bank\bank\lib\engine\ui\cpp\ui.cpp
+	"../hpp/ui.hpp"
 
