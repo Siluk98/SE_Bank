@@ -1,8 +1,3 @@
-<form  method="post" enctype="multipart/form-data">
-login<br><input type="text" name="login"><br>
-password<br><input type="text" name="password"><br>
-<input type="submit" name="co" value="Potwierdź"><br>
-</form>
 <?php 
 header('Content-Type:text/plain');
 $conn=@mysqli_connect("localhost","turboreal","zaq1@WSX","turboreal");
