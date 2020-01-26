@@ -14,6 +14,7 @@ $mail =$_POST['mail'];
 $address =$_POST['address'];
 $login =$_POST['login'];
 $password =$_POST['password'];
+$userType =$_POST['userType'];
 
 if(empty($login) || empty($password))
 {
@@ -31,7 +32,7 @@ if($wynik->num_rows>0)
 		
 	
 	while($rekord=$wynik->fetch_array()){
-		echo($rekord['name']." ".$rekord['secondName']." ".$rekord['lastName']." ".$rekord['dateOfBirth']." ".$rekord['citizenship']." ".$rekord['pesel']." ".$rekord['phoneNr']." ".$rekord['mail']." ".$rekord['address']." ".$rekord['login']." ".$rekord['password']."");	
+		echo($rekord['name']." ".$rekord['secondName']." ".$rekord['lastName']." ".$rekord['dateOfBirth']." ".$rekord['citizenship']." ".$rekord['pesel']." ".$rekord['phoneNr']." ".$rekord['mail']." ".$rekord['address']." ".$rekord['login']." ".$rekord['password']."".$rekord['userType']."");	
 }
 if($wynik->num_rows<=0)
 {
