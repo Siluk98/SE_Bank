@@ -15,6 +15,10 @@ AuthenticationState::AuthenticationState()
 AuthenticationState::~AuthenticationState()
 {
     std::cout << "AuthenticationState: delete" << std::endl;
+    for(auto i:objects)
+    {
+        delete i;
+    }
 }
 
 void AuthenticationState::init()
@@ -111,20 +115,43 @@ void AuthenticationState::init()
 */
     UI::CssMgr* cssmgr = UI::CssMgr::getInstance();
     cssmgr->loadFromFile("text.css");
-    UI::cssHandler* css = cssmgr->getCss("#test");
-    std::cout << css << std::endl;
-    css->print();
+    UI::cssHandler* cssBt = cssmgr->getCss("#submit");
+    UI::cssHandler* cssInp = cssmgr->getCss(".input");
+    UI::cssHandler* cssInp2 = cssmgr->getCss("#input2");
+    std::cout << "BT --------------" << std::endl;
+    cssBt->print();
+    std::cout << "INP --------------" << std::endl;
+    cssInp->print();
+    std::cout << "INP2 --------------" << std::endl;
+    cssInp2->print();
+    std::cout << "FIN --------------" << std::endl;
 
-
-    addObject(new UI::Button("test", *css,"pyta","gfx/empty.png","gfx/empty.png",
+    inp1 = new UI::Input("input1", *cssInp,"fonts/arial.ttf");
+    inp2 = new UI::Input("input2", *cssInp,"fonts/arial.ttf");
+    inp2->applyStyle(*cssInp2);
+    bt = new UI::Button("submit", *cssBt,"Submit","gfx/empty.png","gfx/empty.png",
                                 Action{[](Object* a, Object* b, std::string arg1, std::string arg2){
-                                    //UI::Input* inp = dynamic_cast<UI::Input*>()
-                                    std::cout << "ebebebe" << std::endl;
-                                }
-                            }));
+                                    UI::Input* inp1 = dynamic_cast<UI::Input*>(thisState->findObject("input1"));
+                                    UI::Input* inp2 = dynamic_cast<UI::Input*>(thisState->findObject("input2"));
+                                    if(!inp1 || !inp2) std::cout << "INP NULL" << std::endl;
+                                    AuthenticationState* ts = dynamic_cast<AuthenticationState*>(thisState);
+                                    if(ts->auth.authenticate(inp1->getText(),inp2->getText()))
+                                    {
+                                        //if(ts->auth)
+                                        Engine::pushState(new CEOMainState,&(ts->auth));
+                                        //Engine::pushState(new AuthenticationState,&(ts->auth));
 
-    //UI::cssHandler* css = new UI::cssHandler;
-    addObject(new UI::Input("inp", *css,"fonts/arial.ttf"));
+                                    }
+                                    else
+                                    {
+                                        std::cout << "Credentials error" << std::endl;
+                                    }
+                                }
+                            });
+    addObject(inp2);
+    addObject(bt);
+    addObject(inp1);
+
 }
 
 void AuthenticationState::cleanup()
@@ -138,12 +165,22 @@ void AuthenticationState::handleEvents(sf::RenderWindow& window)
     if(!paused)
     {
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::A))
-        {
-            //Game* game = Game::getGame();
-            //game->pushState(new SecondState);
-            return;
-        }
+           {
+               std::cout << "pyton" << std::endl;
+               for(auto i:objects)
+                {
+                    std::cout <<"|"<< i->getId() <<"|"<< std::endl;
+                }
+           }
+        /*
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+           {
+               std::cout << "POP" << std::endl;
+               Engine::popState();
+           }
+        */
     }
+
 
     sf::Event event;
     while (window.pollEvent(event))
@@ -160,7 +197,11 @@ void AuthenticationState::handleEvents(sf::RenderWindow& window)
                 std::cout << "aaaaaa" << event.text.unicode << std::endl;
                 if(focus!=nullptr && focus->isOfType("textInput"))
                     if (event.text.unicode < 128)
+                    {
                         dynamic_cast<UI::Input*>(focus)->sendChar(static_cast<char>(event.text.unicode));
+                        std::cout << focus->getId() << std::endl;
+                    }
+
 
             }
             if(event.type == sf::Event::LostFocus) pause();
@@ -184,13 +225,10 @@ void AuthenticationState::resume()
 
 void AuthenticationState::update()
 {
-    //std::cout << "AuthenticationState: update" << std::endl;
     if(!paused)
     {
         for(unsigned int i=0;i<objects.size();i++)
             {
-                //std::cout << "update: " << i << std::endl;
-                //std::cout << "size "  << objects.size() << std::endl;
                 auto el = objects[i];
                 if(el!=nullptr)
                 {
@@ -198,7 +236,6 @@ void AuthenticationState::update()
                 }
             }
     }
-
 }
 
 void AuthenticationState::render(sf::RenderWindow& window)

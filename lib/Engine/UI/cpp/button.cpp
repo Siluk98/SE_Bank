@@ -98,14 +98,20 @@ void Button::update()
     {
         events[i]->handle(this,nullptr,"","");
     }
-    updateTexture(*sprite);
+    if(sprite != nullptr)
+    {
+        updateTexture(*sprite);
+    }
 }
 
 void Button::collide(Object* collider){}
 std::string Button::create(std::string obj, std::string params){return this->id;}
 void Button::draw(sf::RenderTarget &target, sf::RenderStates s) const
 {
-    target.draw(*sprite);
+    if(sprite != nullptr)
+    {
+        target.draw(*sprite);
+    }
     target.draw(*printText);
 }
 

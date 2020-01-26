@@ -15,6 +15,8 @@
 #include "../../ResourceMgrs/fontMgr/hpp/fontMgr.hpp"
 #include "../../ResourceMgrs/audioMgr/hpp/audioMgr.hpp"
 
+#define thisState Engine::getState()
+
 class Engine
 {
 public:
@@ -22,7 +24,7 @@ public:
     ~Engine();
     void run();
     static void stop();
-    static void pushState(State*);
+    static void pushState(State*, void* intent = nullptr);
     static void popState();
     static State* getState();
     static bool isRunning();

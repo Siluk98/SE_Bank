@@ -1,10 +1,10 @@
 #ifndef TRANSFER_H
 #define TRANSFER_H
 #include "Date.hpp"
-#include "BankingAccount.hpp"
-#include "BankingSystem.hpp"
-class BankingAccount;
-class BankingSystem;
+//#include "BankingAccount.hpp"
+//#include "BankingSystem.hpp"
+//class BankingAccount;
+//class BankingSystem;
 class Transfer {
 public:
     Transfer();
@@ -25,7 +25,7 @@ public:
 	void setIsExpired(bool isExpired);
 	bool getIsExpired();
 	bool checkData();
-	bool execute();
+	//bool execute();
 private:
 	float value;
 	unsigned int from;

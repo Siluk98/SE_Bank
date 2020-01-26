@@ -4,8 +4,10 @@
 
 void UI::Component::applyStyle(cssHandler& css)
 {
+    std::cout << "apply, style.size(): " << css.getStyle().size() <<std::endl;
     for(auto i = css.getStyle().begin();i!=css.getStyle().end();i++)
     {
+        std::cout << i->first << "|" << i->second << std::endl;
         changeStyle(i->first,i->second);
     }
 }

@@ -11,6 +11,7 @@ namespace UI
         Input(std::string id, cssHandler& css, std::string font);
         ~Input();
         std::string getText();
+        void setText(std::string);
         void draw(sf::RenderTarget &target, sf::RenderStates states) const;
         void update();
         void collide(Object*){};
@@ -22,7 +23,6 @@ namespace UI
         int caretMax;
         bool caretVisible;
         sf::Color* caretColor;
-        std::string id;
         sf::RectangleShape* field;
         sf::RectangleShape* caret;
         sf::Text* text;
@@ -31,6 +31,10 @@ namespace UI
         std::string value;
         void caretBlink();
         void updateText();
+        float posx;
+        float posy;
+        float width;
+        float height;
     };
 }
 

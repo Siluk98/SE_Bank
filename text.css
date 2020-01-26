@@ -1,3 +1,31 @@
+#submit{
+width: 200
+height: 100
+top: 600
+left: 200
+color: red
+}
+
+#back{
+width: 200
+height: 100
+top: 600
+left: 500
+color: red
+}
+
+
+.input{
+width: 200
+height: 100
+top: 100
+left: 200
+}
+
+#input2{
+top: 300
+}
+
 #test{
 width: 100
 heigth : p  

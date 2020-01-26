@@ -1,8 +1,7 @@
 #include "../hpp/SystemAccount.hpp"
 
 std::string SystemAccount::getLogin() {
-	// TODO - implement SystemAccount::getLogin
-	throw "Not yet implemented";
+	return login;
 }
 
 /*
@@ -13,40 +12,39 @@ void SystemAccount::setLogin(std::string Login) {
 */
 
 std::string SystemAccount::getPassword() {
-	// TODO - implement SystemAccount::getPassword
-	throw "Not yet implemented";
+	return password;
 }
 
 void SystemAccount::setPassword(std::string Password) {
-	// TODO - implement SystemAccount::setPassword
-	throw "Not yet implemented";
+	password = Password;
 }
 
-void SystemAccount::getAccountList() {
-	// TODO - implement SystemAccount::getAccountList
-	throw "Not yet implemented";
+std::vector<BankingAccount*>& SystemAccount::getAccountList() {
+	return accountList;
 }
 
-void SystemAccount::setAccountList(std::vector<BankingAccount*> AccountList) {
-	// TODO - implement SystemAccount::setAccountList
-	throw "Not yet implemented";
+void SystemAccount::setAccountList(std::vector<BankingAccount*>& AccountList) {
+	accountList = AccountList;
 }
 
-void SystemAccount::getID() {
-	// TODO - implement SystemAccount::getID
-	throw "Not yet implemented";
+unsigned int SystemAccount::getID() {
+	return ID;
 }
 
 
-void SystemAccount::addAccount() {
-	// TODO - implement SystemAccount::addAccount
-	throw "Not yet implemented";
+void SystemAccount::addAccount(BankingAccount* b) {
+	accountList.push_back(b);
 }
 
-void SystemAccount::removeAccount() {
-	// TODO - implement SystemAccount::removeAccount
-	throw "Not yet implemented";
+
+BankingAccount* SystemAccount::getAccount(int k) {
+    for(int i=0;i<accountList.size();i++)
+    {
+        if(accountList[i]->getID()==k) return accountList[i];
+    }
+    return nullptr;
 }
+
 
 bool SystemAccount::getIsAdmin() {
 	return this->isAdmin;

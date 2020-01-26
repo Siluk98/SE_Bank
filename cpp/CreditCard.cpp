@@ -1,13 +1,11 @@
 #include "../hpp/CreditCard.hpp"
 
-void CreditCard::getID() {
-	// TODO - implement CreditCard::getID
-	throw "Not yet implemented";
+int CreditCard::getID() {
+	return ID;
 }
 
 bool CreditCard::getIsRestricted() {
-	// TODO - implement CreditCard::getIsRestricted
-	throw "Not yet implemented";
+	return isRestricted;
 }
 
 void CreditCard::setIsRestricted(bool isRestricted) {
@@ -15,26 +13,21 @@ void CreditCard::setIsRestricted(bool isRestricted) {
 }
 
 std::string CreditCard::getSecurityCode() {
-	// TODO - implement CreditCard::getSecurityCode
-	throw "Not yet implemented";
+	return securityCode;
 }
 
 void CreditCard::setSecurityCode(std::string securityCode) {
-	// TODO - implement CreditCard::setSecurityCode
-	throw "Not yet implemented";
+
 }
 
 std::string CreditCard::getPin() {
-	// TODO - implement CreditCard::getPin
-	throw "Not yet implemented";
+	return pin;
 }
 
 void CreditCard::setPin(std::string pin) {
-	// TODO - implement CreditCard::setPin
-	throw "Not yet implemented";
+	this->pin = pin;
 }
 
 void CreditCard::restict() {
-	// TODO - implement CreditCard::restict
-	throw "Not yet implemented";
+	setIsRestricted(false);
 }

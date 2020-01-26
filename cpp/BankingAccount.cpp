@@ -74,15 +74,37 @@ bool BankingAccount::makeInvestment() {
 	throw "Not yet implemented";
 }
 
-bool BankingAccount::takeCredit() {
-	// TODO - implement BankingAccount::takeCredit
-	throw "Not yet implemented";
+bool BankingAccount::takeCredit(float f) {
+    loan+=f;
+    balance+=f;
 }
 
 void BankingAccount::vindicate() {
-	// TODO - implement BankingAccount::vindicate
-	throw "Not yet implemented";
+	std::cout << "Insert target's ID number: ";
+	unsigned int idt;
+	std::cin >> idt;
+	float cash;
+	do{
+        std::cin >> cash;
+        std::cout << "insert cash: ";
+	}while(cash<0);
+	int day,month, year;
+	std::cout << "Insert date(day): ";
+	std::cin >> day;
+	std::cout << "Insert date(month): ";
+	std::cin >> month;
+	std::cout << "Insert date(year): ";
+	std::cin >> year;
+	int dayp,monthp, yearp;
+	std::cout << "Insert period(day): ";
+	std::cin >> dayp;
+	std::cout << "Insert period(month): ";
+	std::cin >> monthp;
+	std::cout << "Insert period(year): ";
+	std::cin >> yearp;
+	return TransferHandler::getInstance().addTransfer(idt,ID,cash,Date(day,month,year),Date(dayp,monthp,yearp));
 }
+
 unsigned int BankingAccount::calculateInitialIDCounter()
 {
     return 0;

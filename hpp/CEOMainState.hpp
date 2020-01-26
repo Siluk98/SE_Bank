@@ -1,21 +1,19 @@
-#ifndef FSTATE_HPP
-#define FSTATE_HPP
+#ifndef CEOSTATE_HPP
+#define CEOSTATE_HPP
 
 #include "../lib/Engine/ResourceMgrs/stateMgr/hpp/state.hpp"
 #include "../lib/Engine/ResourceMgrs/cssMgr/hpp/cssMgr.hpp"
 #include <iostream>
 #include "../lib/Engine/Core/hpp/engine.hpp"
 #include "../lib/Engine/UI/hpp/button.hpp"
-#include "../lib/Engine/UI/hpp/canvas.hpp"
 #include "../lib/Engine/UI/hpp/input.hpp"
-#include "AuthenticationSystem.hpp"
-#include "CEOMainState.hpp"
+#include "BankSettings.hpp"
 
-class AuthenticationState : public State
+class CEOMainState : public State
 {
 public:
-    AuthenticationState();
-    ~AuthenticationState();
+    CEOMainState();
+    ~CEOMainState();
     void init();
     void cleanup();
     void handleEvents(sf::RenderWindow&);
@@ -24,10 +22,11 @@ public:
     void pause();
     void resume();
 private:
-    AuthenticationSystem auth;
+    BankSettings bs;
     UI::Button* bt;
+    UI::Button* bt2;
     UI::Input* inp1;
-    UI::Input* inp2;
+    //UI::Input* inp2;
 };
 
 #endif // STATE_HPP

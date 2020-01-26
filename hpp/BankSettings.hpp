@@ -10,6 +10,7 @@ public:
     ~BankSettings();
     void setIntrestRate(float intrestRate);
 	float getIntrestRate();
+
 private:
     float intrestRate;
 	bool loadSettingsFromFile();

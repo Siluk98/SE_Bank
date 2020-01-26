@@ -1,6 +1,6 @@
 #include "../hpp/engine.hpp"
 
-std::shared_ptr<sf::RenderWindow> Engine::window(new sf::RenderWindow(sf::VideoMode(800,600),"WINDOW"));
+std::shared_ptr<sf::RenderWindow> Engine::window(new sf::RenderWindow(sf::VideoMode(1280,720),"WINDOW"));
 std::shared_ptr<GfxMgr> Engine::gfxMgr(new GfxMgr);
 std::shared_ptr<EventMgr> Engine::eventMgr(EventMgr::getInstance());
 std::shared_ptr<StateMgr> Engine::stateMgr(new StateMgr);
@@ -79,8 +79,9 @@ bool Engine::isRunning()
     return running;
 }
 
-void Engine::pushState(State* s)
+void Engine::pushState(State* s, void* intent)
 {
+    s->addIntent(intent);
     stateMgr->pushState(s);
 }
 

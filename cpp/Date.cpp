@@ -40,6 +40,17 @@ std::string Date::getString()
     return s;
 }
 
+std::string Date::getSpaceString()
+{
+    std::string s("");
+    s+=add_zero(day);
+    s+=" ";
+    s+=add_zero(month);
+    s+=" ";
+    s+=add_zero_year(year);
+    return s;
+}
+
 int Date::getDay() {
 	return this->day;
 }
@@ -136,4 +147,10 @@ bool Date::operator<=(const Date& o) const{
 
 bool Date::operator!=(const Date& o) const{
 	return !(*this==o);
+}
+
+Date Date::getCurrentDate()
+{
+    std::chrono::time_point t = std::chrono::system_clock::now();
+    return Date(1970,1,1+std::chrono::system_clock::to_time_t(t)/86400);
 }

@@ -85,7 +85,7 @@ bool Transfer::getIsExpired()
 {
     return isExpired;
 }
-
+/*
 bool Transfer::execute()
 {
     BankingSystem& bank = BankingSystem::getInstance();
@@ -100,3 +100,4 @@ bool Transfer::execute()
     else setDate(getDate()+getPeriod());
     return true;
 }
+*/

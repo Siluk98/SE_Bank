@@ -12,7 +12,7 @@ private:
 	std::string pin;
 
 public:
-	void getID();
+	int getID();
 	bool getIsRestricted();
 	void setIsRestricted(bool isRestricted);
 	std::string getSecurityCode();

@@ -12,6 +12,7 @@ State::State()
 {
     focus = nullptr;
     paused = false;
+    intent = nullptr;
 }
 
 State::~State()
@@ -73,4 +74,9 @@ void State::setFocus(Object* obj)
 bool State::isPaused()
 {
     return paused;
+}
+
+void State::addIntent(void* arg)
+{
+    intent = arg;
 }

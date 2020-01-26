@@ -106,10 +106,10 @@ inline void initDefaultPredicates(EventMgr* mgr)
                         std::cout << "wid: " << hitbox->width << std::endl;
                         std::cout << "hei: " << hitbox->height << std::endl;
                         */
-                        if(pos.y < hitbox->left &&
-                           pos.y > hitbox->left+hitbox->width &&
-                           pos.x < hitbox->top &&
-                           pos.x > hitbox->top+hitbox->height) return true;
+                        if(pos.x < hitbox->left ||
+                           pos.x > hitbox->left+hitbox->width ||
+                           pos.y < hitbox->top ||
+                           pos.y > hitbox->top+hitbox->height) return true;
                     }
                 }
             //};

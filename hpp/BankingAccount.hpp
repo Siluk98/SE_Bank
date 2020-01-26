@@ -1,8 +1,9 @@
 #ifndef BANKINGACCOUNT_H
 #define BANKINGACCOUNT_H
 #include <iostream>
-//#include "TransferHandler.hpp"
-class TransferHandler;
+#include "Date.hpp"
+#include "TransferHandler.hpp"
+//class TransferHandler;
 class BankingAccount {
 public:
 	std::string getCurrency();
@@ -17,7 +18,7 @@ public:
 	bool makeTransfer();
 	bool exchangeCurrency();
 	bool makeInvestment();
-	bool takeCredit();
+	bool takeLoan(float);
 	void vindicate();
     void addMoney(float);
 private:
@@ -26,6 +27,7 @@ private:
 	float balance;
 	bool isFrozen;
 	bool isInvestment;
+	int float loan;
 	unsigned int ID;
 	static unsigned int IDCounter;
 

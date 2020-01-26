@@ -6,15 +6,19 @@
 #include "../../Core/hpp/engine.hpp"
 #include "../../ResourceMgrs/eventMgr/hpp/event.hpp"
 
-UI::Input::Input(std::string id, cssHandler& css, std::string f="fonts/arial.ttf"){
-    this->id = id;
+UI::Input::Input(std::string _id, cssHandler& css, std::string f="fonts/arial.ttf"){
+    std::cout << _id << std::endl;
+    id = _id;
+    std::cout << id << std::endl;
     focus = false;
     caretVisible = true;
     addType("textInput");
     container = true;
-    float posx=0;
-    float posy=50;
-    //focus = !focus;
+    posx = 0;
+    posy = 50;
+    width = 100;
+    height = 20;
+    sprite = nullptr;
     caretCounter = 0;
     caretMax = 60;
     field = new sf::RectangleShape(sf::Vector2f{128,32});
@@ -33,6 +37,7 @@ UI::Input::Input(std::string id, cssHandler& css, std::string f="fonts/arial.ttf
     text->setCharacterSize(28);
     text->setFillColor(sf::Color::Black);
     text->setPosition(posx+1,posy);
+    applyStyle(css);
     addEvent("MouseDown", Action{[](Object* a, Object* b, std::string arg1, std::string arg2){
                     UI::Input *c = dynamic_cast<UI::Input*>(a);
                     c->focus = true;
@@ -94,39 +99,41 @@ void UI::Input::draw(sf::RenderTarget &target, sf::RenderStates s) const
 
 void UI::Input::changeStyle(std::string atr, std::string val)
 {
-    /*
     try
     {
         if(val == "") return;
-        std::cout << id << ": " << atr << ": " << val << std::endl;
-        int i = std::stoi(val);
+        std::cout << id << ": |" << atr << "|: |" << val <<"|" <<std::endl;
+
         if(atr == "width")
         {
-            auto s = sprite->getScale();
-            auto bounds = sprite->getGlobalBounds();
-            float ns = i/bounds.width;
-            sprite->setScale(ns,s.y);
-            delete hitbox;
-            hitbox = new sf::IntRect(sprite->getGlobalBounds());
+            width = std::stoi(val);
+            hitbox->width = width;
+            field->setSize(sf::Vector2f(width,height));
         }
         if(atr == "height")
         {
-            auto s = sprite->getScale();
-            auto bounds = sprite->getGlobalBounds();
-            float ns = i/bounds.height;
-            sprite->setScale(s.x,ns);
-            delete hitbox;
-            hitbox = new sf::IntRect(sprite->getGlobalBounds());
+            height = std::stoi(val);
+            hitbox->height = height;
+            caret->setSize(sf::Vector2f(1,height));
+            field->setSize(sf::Vector2f(width,height));
         }
         if(atr == "top")
         {
-            std::cout << sprite->getPosition().x << " " << i << std::endl;
-            moveTo(sprite->getPosition().x,i);
+            posy = std::stoi(val);
+            std::cout << posx << " " << posy << std::endl;
+            field->setPosition(posx,posy);
+            hitbox->top = posy;
+            caret->setPosition(posx+1,posy+1);
+            text->setPosition(posx+1,posy);
         }
         if(atr == "left")
         {
-            std::cout << i << " " << sprite->getPosition().y << std::endl;
-            moveTo(i,sprite->getPosition().y);
+            posx = std::stoi(val);
+            std::cout << posx << " " << posy << std::endl;
+            field->setPosition(posx,posy);
+            hitbox->left = posx;
+            caret->setPosition(posx+1,posy+1);
+            text->setPosition(posx+1,posy);
         }
         if(atr == "color")
         {
@@ -137,7 +144,6 @@ void UI::Input::changeStyle(std::string atr, std::string val)
     {
         std::cout << "Broken css" << std::endl;
     }
-    */
 }
 
 std::string UI::Input::create(std::string obj, std::string params){return id;};
@@ -157,4 +163,15 @@ void UI::Input::sendChar(char c)
 void UI::Input::updateText()
 {
     text->setString(value);
+}
+
+std::string UI::Input::getText()
+{
+    return value;
+}
+
+void UI::Input::setText(std::string arg)
+{
+    value = arg;
+    updateText();
 }

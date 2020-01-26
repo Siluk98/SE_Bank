@@ -24,11 +24,13 @@ public:
     std::string getId();
     void setFocus(Object*);
     bool isPaused();
+    void addIntent(void*);
 protected:
     std::vector<Object*> objects;
     std::string id;
     bool paused;
     Object* focus;
+    void* intent;
 };
 
 #endif // STATE_HPP
