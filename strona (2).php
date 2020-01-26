@@ -1,32 +1,10 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <title>Strona Banku</title>
-	<meta charset="utf-8" />
-</head>
-<body>
-<style type="text/css">/*<![CDATA[ */
-.cbalink {
-display:none;
-}
-</style>
-<script type="text/javascript">
-document.getElementsByTagName("div")[0].style.display = "none";
-</script>
-<style>
-body{
-margin:0 auto;
-text-align:center;
-}
-</style>
 <form  method="post" enctype="multipart/form-data">
 login<br><input type="text" name="login"><br>
 password<br><input type="text" name="password"><br>
 <input type="submit" name="co" value="Potwierdź"><br>
 </form>
-
-
 <?php 
+header('Content-Type:text/plain');
 $conn=@mysqli_connect("localhost","turboreal","zaq1@WSX","turboreal");
 if(!$conn) die('Brak polaczenia z serwerem');
 
@@ -67,6 +45,4 @@ if($wynik->num_rows>0)
 	
 }
 ?>
-</body>
-</html>
 		
