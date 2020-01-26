@@ -37,7 +37,11 @@ if($wynik->num_rows>0)
 		echo($rekord['name']." ".$rekord['secondName']." ".$rekord['lastName']." ".$rekord['dateOfBirth']." ".$rekord['citizenship']." ".$rekord['pesel']." ".$rekord['phoneNr']." ".$rekord['mail']." ".$rekord['address']." ".$rekord['login']." ".$rekord['password']."");
                 echo("<br>");	
 }
+if($wynik->num_rows<=0)
+{
+               echo($rekord['login']." ".$rekord['password']);
+}
 	
 }
 ?>
-		
+			
