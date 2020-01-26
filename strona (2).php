@@ -23,7 +23,7 @@ echo "Podaj dane";
 }
 else
 {				
-$wynik=$conn->query("SELECT * FROM dane WHERE login='$login';") or die ('Nie ma');
+$wynik=$conn->query("SELECT * FROM dane WHERE login='$login' AND password='$password';") or die ('Nie ma');
 #$sql = "INSERT INTO dane(name,secondName,lastName,dateOfBirth,citizenship,pesel,phoneNr,mail,address,login,password) VALUES('$name','$secondName','$lastName','$dateOfBirth','$citizenship','$pesel','$phoneNR','$mail','$address','$login','$password');";
 $conn->query($sql);				
 }
