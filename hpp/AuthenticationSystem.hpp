@@ -5,7 +5,7 @@
 #include <iostream>
 #include <SFML/Network.hpp>
 #include "PersonalData.hpp"
-#include "BankingSystem.hpp"
+#include "SystemAccount.hpp"
 
 enum PrivilageLevel {User=0,Admin,CEO};
 
@@ -20,7 +20,7 @@ class AuthenticationSystem {
 public:
     AuthenticationSystem();
     bool authenticate(std::string login, std::string password);
-    SystemAccount* getAccount();
+    AuthToken getAuth();
 private:
     static std::string domain;
     static std::string page;

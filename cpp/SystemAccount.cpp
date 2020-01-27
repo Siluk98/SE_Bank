@@ -1,5 +1,11 @@
 #include "../hpp/SystemAccount.hpp"
 
+SystemAccount::SystemAccount(std::string l, std::string p)
+{
+    login = l;
+    password = p;
+}
+
 std::string SystemAccount::getLogin() {
 	return login;
 }
@@ -38,7 +44,7 @@ void SystemAccount::addAccount(BankingAccount* b) {
 
 
 BankingAccount* SystemAccount::getAccount(int k) {
-    for(int i=0;i<accountList.size();i++)
+    for(unsigned int i=0;i<accountList.size();i++)
     {
         if(accountList[i]->getID()==k) return accountList[i];
     }

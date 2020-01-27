@@ -65,7 +65,7 @@ bool AuthenticationSystem::authenticate(std::string login, std::string password)
     return true;
 }
 
-BankingAccount* AuthenticationSystem::getAccount()
+AuthToken AuthenticationSystem::getAuth()
 {
-    if(authToken.login = "");
+    return authToken;
 }

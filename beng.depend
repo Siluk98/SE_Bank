@@ -59,37 +59,45 @@
 	<vector>
 	"BankingAccount.hpp"
 
-1575272664 source:f:\cpp\bank\bank\cpp\authenticationsystem.cpp
+1580080611 source:f:\cpp\bank\bank\cpp\authenticationsystem.cpp
 	"../hpp/AuthenticationSystem.hpp"
 
-1575273724 f:\cpp\bank\bank\hpp\authenticationsystem.hpp
-	<string>
+1580080537 f:\cpp\bank\bank\hpp\authenticationsystem.hpp
+	<sstream>
+	<vector>
+	<iostream>
+	<SFML/Network.hpp>
+	"PersonalData.hpp"
+	"SystemAccount.hpp"
 
-1578011688 source:f:\cpp\bank\bank\cpp\bankingaccount.cpp
+1580104604 source:f:\cpp\bank\bank\cpp\bankingaccount.cpp
 	"../hpp/BankingAccount.hpp"
 
-1578162957 f:\cpp\bank\bank\hpp\bankingaccount.hpp
+1580080377 f:\cpp\bank\bank\hpp\bankingaccount.hpp
 	<iostream>
+	"Date.hpp"
+	"TransferHandler.hpp"
 
 1577665056 source:f:\cpp\bank\bank\cpp\banksettings.cpp
 	"../hpp/BankSettings.hpp"
 
-1577664749 f:\cpp\bank\bank\hpp\banksettings.hpp
+1580068758 f:\cpp\bank\bank\hpp\banksettings.hpp
 	<iostream>
 	<fstream>
 
-1575274038 source:f:\cpp\bank\bank\cpp\creditcard.cpp
+1580065374 source:f:\cpp\bank\bank\cpp\creditcard.cpp
 	"../hpp/CreditCard.hpp"
 
-1577664725 f:\cpp\bank\bank\hpp\creditcard.hpp
+1580065383 f:\cpp\bank\bank\hpp\creditcard.hpp
 	<string>
 	<fstream>
 	<iostream>
 
-1577665915 source:f:\cpp\bank\bank\cpp\date.cpp
+1580070564 source:f:\cpp\bank\bank\cpp\date.cpp
 	"../hpp/Date.hpp"
 
-1575830861 f:\cpp\bank\bank\hpp\date.hpp
+1580070580 f:\cpp\bank\bank\hpp\date.hpp
+	<chrono>
 	<string>
 
 1577665314 source:f:\cpp\bank\bank\cpp\personaldata.cpp
@@ -99,26 +107,24 @@
 	<string>
 	"Date.hpp"
 
-1577758304 source:f:\cpp\bank\bank\cpp\systemaccount.cpp
+1580104921 source:f:\cpp\bank\bank\cpp\systemaccount.cpp
 	"../hpp/SystemAccount.hpp"
 
-1577979881 f:\cpp\bank\bank\hpp\systemaccount.hpp
+1580104906 f:\cpp\bank\bank\hpp\systemaccount.hpp
 	<string>
 	<vector>
 	"BankingAccount.hpp"
 
-1578162422 source:f:\cpp\bank\bank\cpp\transfer.cpp
+1580065122 source:f:\cpp\bank\bank\cpp\transfer.cpp
 	"../hpp/Transfer.hpp"
 
-1578162957 f:\cpp\bank\bank\hpp\transfer.hpp
+1580065137 f:\cpp\bank\bank\hpp\transfer.hpp
 	"Date.hpp"
-	"BankingAccount.hpp"
-	"BankingSystem.hpp"
 
-1577990609 source:f:\cpp\bank\bank\cpp\transferhandler.cpp
+1580070639 source:f:\cpp\bank\bank\cpp\transferhandler.cpp
 	"../hpp/TransferHandler.hpp"
 
-1578162677 f:\cpp\bank\bank\hpp\transferhandler.hpp
+1580068710 f:\cpp\bank\bank\hpp\transferhandler.hpp
 	<vector>
 	"Transfer.hpp"
 	<fstream>
@@ -126,6 +132,7 @@
 	<memory>
 	<algorithm>
 	"Date.hpp"
+	"BankingSystem.hpp"
 
 1555874594 source:f:\cpp\bank\bank\lib\menu\menu.cpp
 	"menu.hpp"
@@ -137,10 +144,11 @@
 	<conio.h>
 	<windows.h>
 
-1579951866 source:f:\cpp\bank\bank\main.cpp
+1580105140 source:f:\cpp\bank\bank\main.cpp
 	<iostream>
 	"lib/Engine/Core/hpp/engine.hpp"
 	"hpp/firstState.hpp"
+	"hpp/AuthenticationSystem.hpp"
 
 1547934422 f:\cpp\bank\bank\lib\engine\hpp\game.hpp
 	<vector>
@@ -683,7 +691,7 @@
 	<map>
 	<SFML/Graphics.hpp>
 
-1579953101 f:\cpp\bank\bank\hpp\firststate.hpp
+1580063121 f:\cpp\bank\bank\hpp\firststate.hpp
 	"../lib/Engine/ResourceMgrs/stateMgr/hpp/state.hpp"
 	"../lib/Engine/ResourceMgrs/cssMgr/hpp/cssMgr.hpp"
 	<iostream>
@@ -691,6 +699,8 @@
 	"../lib/Engine/UI/hpp/button.hpp"
 	"../lib/Engine/UI/hpp/canvas.hpp"
 	"../lib/Engine/UI/hpp/input.hpp"
+	"AuthenticationSystem.hpp"
+	"CEOMainState.hpp"
 
 1568914130 f:\cpp\bank\bank\lib\ui\hpp\cssmgr.hpp
 	"cssHandler.hpp"
@@ -925,26 +935,22 @@
 1578536805 source:f:\cpp\bank\bank\lib\ui\cpp\ui.cpp
 	"../hpp/ui.hpp"
 
-1578515775 source:f:\cpp\bank\bank\cpp\firststate.cpp
+1580074847 source:f:\cpp\bank\bank\cpp\firststate.cpp
 	"../hpp/firstState.hpp"
-	<iostream>
-	"../lib/Engine/hpp/game.hpp"
-	"../lib/UI/hpp/button.hpp"
-	"../lib/UI/hpp/canvas.hpp"
-	"../lib/UI/hpp/input.hpp"
-	"../lib/Engine/hpp/AUDIOMGR.HPP"
 
-1578162696 f:\cpp\bank\bank\hpp\bankingsystem.hpp
+1580104539 f:\cpp\bank\bank\hpp\bankingsystem.hpp
 	<memory>
 	<map>
+	"BankingAccount.hpp"
+	"Transfer.hpp"
 
-1578011939 source:f:\cpp\bank\bank\cpp\bankingsystem.cpp
+1580104410 source:f:\cpp\bank\bank\cpp\bankingsystem.cpp
 	"../hpp/BankingSystem.hpp"
 
-1578603686 source:f:\cpp\bank\bank\lib\engine\core\cpp\engine.cpp
+1580058530 source:f:\cpp\bank\bank\lib\engine\core\cpp\engine.cpp
 	"../hpp/engine.hpp"
 
-1578603091 f:\cpp\bank\bank\lib\engine\core\hpp\engine.hpp
+1580058530 f:\cpp\bank\bank\lib\engine\core\hpp\engine.hpp
 	<SFML/Graphics.hpp>
 	<vector>
 	<chrono>
@@ -984,7 +990,7 @@
 	<string>
 	<vector>
 
-1578603516 f:\cpp\bank\bank\lib\engine\resourcemgrs\statemgr\hpp\state.hpp
+1580058691 f:\cpp\bank\bank\lib\engine\resourcemgrs\statemgr\hpp\state.hpp
 	<vector>
 	"../../../Core/hpp/object.hpp"
 
@@ -1051,12 +1057,12 @@
 	"eventMgr.hpp"
 	<iostream>
 
-1578538880 f:\cpp\bank\bank\lib\engine\resourcemgrs\eventmgr\hpp\eventpredicates.hpp
+1580047972 f:\cpp\bank\bank\lib\engine\resourcemgrs\eventmgr\hpp\eventpredicates.hpp
 	"event.hpp"
 	"eventMgr.hpp"
 	"../../../Core/hpp/engine.hpp"
 
-1578602490 source:f:\cpp\bank\bank\lib\engine\resourcemgrs\fontmgr\cpp\fontmgr.cpp
+1580045886 source:f:\cpp\bank\bank\lib\engine\resourcemgrs\fontmgr\cpp\fontmgr.cpp
 	"../hpp/fontMgr.hpp"
 	<iostream>
 
@@ -1070,13 +1076,13 @@
 	<SFML/Graphics.hpp>
 	<iostream>
 
-1570541226 source:f:\cpp\bank\bank\lib\engine\resourcemgrs\statemgr\cpp\state.cpp
+1580058724 source:f:\cpp\bank\bank\lib\engine\resourcemgrs\statemgr\cpp\state.cpp
 	"../hpp/state.hpp"
 
 1578603091 source:f:\cpp\bank\bank\lib\engine\resourcemgrs\statemgr\cpp\statemgr.cpp
 	"../hpp/stateMgr.hpp"
 
-1578537670 source:f:\cpp\bank\bank\lib\engine\ui\cpp\button.cpp
+1580063732 source:f:\cpp\bank\bank\lib\engine\ui\cpp\button.cpp
 	"../hpp/button.hpp"
 	<iostream>
 	"../../ResourceMgrs/eventMgr/hpp/event.hpp"
@@ -1132,7 +1138,7 @@
 1568921339 f:\cpp\bank\bank\lib\engine\ui\hpp\checkbox.hpp
 	"ui.hpp"
 
-1572962892 source:f:\cpp\bank\bank\lib\engine\ui\cpp\input.cpp
+1580046508 source:f:\cpp\bank\bank\lib\engine\ui\cpp\input.cpp
 	"../hpp/input.hpp"
 	"../../ResourceMgrs/cssMgr/hpp/cssHandler.hpp"
 	"../../ResourceMgrs/fontMgr/hpp/fontMgr.hpp"
@@ -1141,7 +1147,7 @@
 	"../../Core/hpp/engine.hpp"
 	"../../ResourceMgrs/eventMgr/hpp/event.hpp"
 
-1568900241 f:\cpp\bank\bank\lib\engine\ui\hpp\input.hpp
+1580047711 f:\cpp\bank\bank\lib\engine\ui\hpp\input.hpp
 	"ui.hpp"
 
 1578602283 source:f:\cpp\bank\bank\lib\engine\ui\cpp\progressbar.cpp
@@ -1161,6 +1167,93 @@
 	"../../Core/hpp/engine.hpp"
 	"../../ResourceMgrs/eventMgr/hpp/event.hpp"
 
-1570573425 source:f:\cpp\bank\bank\lib\engine\ui\cpp\ui.cpp
+1580045470 source:f:\cpp\bank\bank\lib\engine\ui\cpp\ui.cpp
 	"../hpp/ui.hpp"
+
+1486732800 f:\cpp\bank\bank\lib\sfml_2.4.2_seh_64bit\include\sfml\network.hpp
+	<SFML/System.hpp>
+	<SFML/Network/Ftp.hpp>
+	<SFML/Network/Http.hpp>
+	<SFML/Network/IpAddress.hpp>
+	<SFML/Network/Packet.hpp>
+	<SFML/Network/Socket.hpp>
+	<SFML/Network/SocketHandle.hpp>
+	<SFML/Network/SocketSelector.hpp>
+	<SFML/Network/TcpListener.hpp>
+	<SFML/Network/TcpSocket.hpp>
+	<SFML/Network/UdpSocket.hpp>
+
+1486732800 f:\cpp\bank\bank\lib\sfml_2.4.2_seh_64bit\include\sfml\network\ftp.hpp
+	<SFML/Network/Export.hpp>
+	<SFML/Network/TcpSocket.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<SFML/System/Time.hpp>
+	<string>
+	<vector>
+
+1486732800 f:\cpp\bank\bank\lib\sfml_2.4.2_seh_64bit\include\sfml\network\export.hpp
+	<SFML/Config.hpp>
+
+1486732800 f:\cpp\bank\bank\lib\sfml_2.4.2_seh_64bit\include\sfml\network\tcpsocket.hpp
+	<SFML/Network/Export.hpp>
+	<SFML/Network/Socket.hpp>
+	<SFML/System/Time.hpp>
+
+1486732800 f:\cpp\bank\bank\lib\sfml_2.4.2_seh_64bit\include\sfml\network\socket.hpp
+	<SFML/Network/Export.hpp>
+	<SFML/Network/SocketHandle.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<vector>
+
+1486732800 f:\cpp\bank\bank\lib\sfml_2.4.2_seh_64bit\include\sfml\network\sockethandle.hpp
+	<SFML/Config.hpp>
+	<basetsd.h>
+
+1486732800 f:\cpp\bank\bank\lib\sfml_2.4.2_seh_64bit\include\sfml\network\http.hpp
+	<SFML/Network/Export.hpp>
+	<SFML/Network/IpAddress.hpp>
+	<SFML/Network/TcpSocket.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<SFML/System/Time.hpp>
+	<map>
+	<string>
+
+1486732800 f:\cpp\bank\bank\lib\sfml_2.4.2_seh_64bit\include\sfml\network\ipaddress.hpp
+	<SFML/Network/Export.hpp>
+	<SFML/System/Time.hpp>
+	<istream>
+	<ostream>
+	<string>
+
+1486732800 f:\cpp\bank\bank\lib\sfml_2.4.2_seh_64bit\include\sfml\network\packet.hpp
+	<SFML/Network/Export.hpp>
+	<string>
+	<vector>
+
+1486732800 f:\cpp\bank\bank\lib\sfml_2.4.2_seh_64bit\include\sfml\network\socketselector.hpp
+	<SFML/Network/Export.hpp>
+	<SFML/System/Time.hpp>
+
+1486732800 f:\cpp\bank\bank\lib\sfml_2.4.2_seh_64bit\include\sfml\network\tcplistener.hpp
+	<SFML/Network/Export.hpp>
+	<SFML/Network/Socket.hpp>
+	<SFML/Network/IpAddress.hpp>
+
+1486732800 f:\cpp\bank\bank\lib\sfml_2.4.2_seh_64bit\include\sfml\network\udpsocket.hpp
+	<SFML/Network/Export.hpp>
+	<SFML/Network/Socket.hpp>
+	<SFML/Network/IpAddress.hpp>
+	<vector>
+
+1580058252 source:f:\cpp\bank\bank\cpp\ceomainstate.cpp
+	"../hpp/CEOMainState.hpp"
+
+1580057078 f:\cpp\bank\bank\hpp\ceomainstate.hpp
+	"../lib/Engine/ResourceMgrs/stateMgr/hpp/state.hpp"
+	"../lib/Engine/ResourceMgrs/cssMgr/hpp/cssMgr.hpp"
+	<iostream>
+	"../lib/Engine/Core/hpp/engine.hpp"
+	"../lib/Engine/UI/hpp/button.hpp"
+	"../lib/Engine/UI/hpp/input.hpp"
+	"BankSettings.hpp"
 

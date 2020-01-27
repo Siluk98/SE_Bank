@@ -5,6 +5,7 @@
 #include "BankingAccount.hpp"
 #include "Transfer.hpp"
 class BankingAccount;
+class SystemAccount;
 class BankingSystem
 {
 public:
@@ -13,6 +14,8 @@ public:
     std::shared_ptr<BankingAccount> getAccount(unsigned int id);
     float calculateCurrencyFactor(std::string f, std::string t);
     bool makeTransfer(std::shared_ptr<Transfer> t);
+    float getCurrency(std::string s);
+    SystemAccount* getAccount(std::string s);
     void currInit();
 private:
     BankingSystem();

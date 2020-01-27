@@ -15,11 +15,11 @@ public:
 	bool getIsInvestment();
 	void setIsInvestment(bool isInvestment);
 	int getID();
-	bool makeTransfer();
-	bool exchangeCurrency();
+	bool makeTransfer(unsigned int idt, float cash, Date d, Date dp);
+	bool exchangeCurrency(std::string s);
 	bool makeInvestment();
 	bool takeLoan(float);
-	void vindicate();
+	bool vindicate();
     void addMoney(float);
 private:
     static unsigned int calculateInitialIDCounter();
@@ -27,7 +27,7 @@ private:
 	float balance;
 	bool isFrozen;
 	bool isInvestment;
-	int float loan;
+	float loan;
 	unsigned int ID;
 	static unsigned int IDCounter;
 

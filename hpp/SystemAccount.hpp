@@ -5,6 +5,7 @@
 #include "BankingAccount.hpp"
 class SystemAccount {
 public:
+    SystemAccount(std::string, std::string);
 	std::string getLogin();
 	//void setLogin(std::string Login);
 	std::string getPassword();

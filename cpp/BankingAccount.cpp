@@ -38,48 +38,26 @@ int BankingAccount::getID() {
 	return this->ID;
 }
 
-bool BankingAccount::makeTransfer() {
-	std::cout << "Insert target's ID number: ";
-	unsigned int idt;
-	std::cin >> idt;
-	float cash;
-	do{
-        std::cin >> cash;
-        std::cout << "insert cash: ";
-	}while(cash<0);
-	int day,month, year;
-	std::cout << "Insert date(day): ";
-	std::cin >> day;
-	std::cout << "Insert date(month): ";
-	std::cin >> month;
-	std::cout << "Insert date(year): ";
-	std::cin >> year;
-	int dayp,monthp, yearp;
-	std::cout << "Insert period(day): ";
-	std::cin >> dayp;
-	std::cout << "Insert period(month): ";
-	std::cin >> monthp;
-	std::cout << "Insert period(year): ";
-	std::cin >> yearp;
-	return TransferHandler::getInstance().addTransfer(ID,idt,cash,Date(day,month,year),Date(dayp,monthp,yearp));
+bool BankingAccount::makeTransfer(unsigned int idt, float cash, Date d, Date dp) {
+
+	return TransferHandler::getInstance().addTransfer(ID,idt,cash,d,dp);
 }
 
-bool BankingAccount::exchangeCurrency() {
-	// TODO - implement BankingAccount::exchangeCurrency
-	throw "Not yet implemented";
+bool BankingAccount::exchangeCurrency(std::string s) {
+    return false;
 }
 
 bool BankingAccount::makeInvestment() {
-	// TODO - implement BankingAccount::makeInvestment
-	throw "Not yet implemented";
+    return false;
 }
 
-bool BankingAccount::takeCredit(float f) {
+bool BankingAccount::takeLoan(float f) {
     loan+=f;
     balance+=f;
+    return true;
 }
 
-void BankingAccount::vindicate() {
+bool BankingAccount::vindicate() {
 	std::cout << "Insert target's ID number: ";
 	unsigned int idt;
 	std::cin >> idt;

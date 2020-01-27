@@ -15,8 +15,19 @@ void BankingSystem::currInit()
     curr["rup"] = 16.66;
 }
 
+SystemAccount* BankingSystem::getAccount(std::string s)
+{
+ return nullptr;
+}
+
+float BankingSystem::getCurrency(std::string s)
+{
+    return curr[s];
+}
+
 float BankingSystem::calculateCurrencyFactor(std::string f, std::string t)
 {
+    if(curr[f]==0 && curr[t] == 0) return 0;
     return curr[t]/curr[f];
 }
 
